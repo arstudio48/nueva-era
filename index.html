@@ -171,7 +171,7 @@
 
 <div class="header">
   <div class="wrap header__inner">
-    <a href="/" class="logo">Nueva <span>Era</span></a>
+    <a href="index.html" class="logo">Nueva <span>Era</span></a>
     <nav class="nav">
       <a class="active" onclick="switchOp('venta')">Comprar</a>
       <a onclick="switchOp('alquiler')">Alquilar</a>
@@ -182,7 +182,7 @@
       <input type="text" id="hq" placeholder="Ciudad..." onkeydown="if(event.key==='Enter')hSearch()">
       <button onclick="hSearch()">🔍</button>
     </div>
-    <a href="/publicar.html" class="btn--outline">Publicar</a>
+    <a href="publicar.html" class="btn--outline">Publicar</a>
   </div>
 </div>
 
@@ -242,7 +242,7 @@
     <h2 class="section-title">Para profesionales</h2>
     <p class="section-sub">Planes para constructoras, promotoras y agencias inmobiliarias</p>
     <div class="promos">
-      <div class="promo-card"><div class="badge">Obra nueva</div><h3>Publica tus promociones</h3><p>Llega a miles de compradores. Publica tus viviendas con fotos profesionales y precios.</p><a href="/publicar.html" class="btn">Publicar ahora →</a></div>
+      <div class="promo-card"><div class="badge">Obra nueva</div><h3>Publica tus promociones</h3><p>Llega a miles de compradores. Publica tus viviendas con fotos profesionales y precios.</p><a href="publicar.html" class="btn">Publicar ahora →</a></div>
       <div class="promo-card"><div class="badge">Publicidad</div><h3>Anúnciate en Nueva Era</h3><p>Banners, anuncios destacados y patrocinios por provincia. Segmenta por perfil de comprador.</p><a href="mailto:info@nuevaera.es" class="btn">Solicitar información →</a></div>
       <div class="promo-card"><div class="badge">Agencias</div><h3>¿Eres agencia inmobiliaria?</h3><p>Planes especiales con condiciones preferentes. Publica carteras completas con un solo clic.</p><a href="mailto:info@nuevaera.es" class="btn">Contactar →</a></div>
     </div>
@@ -262,7 +262,7 @@
     <div class="footer__grid">
       <div><div class="logo" style="color:#fff;margin-bottom:12px">Nueva <span>Era</span></div><p style="font-size:13px;line-height:1.7;color:rgba(255,255,255,.45)">Portal inmobiliario líder. Compra, venta, alquiler y obra nueva en toda España. Más de 14 anuncios y creciendo.</p></div>
       <div><h4>Inmuebles</h4><a onclick="switchOp('venta')">Pisos en venta</a><a onclick="switchOp('alquiler')">Pisos en alquiler</a><a onclick="switchOp('venta')">Casas</a><a onclick="switchOp('obranueva')">Obra nueva</a></div>
-      <div><h4>Profesionales</h4><a href="/publicar.html">Publicar anuncio</a><a href="/publicar.html">Constructores</a><a>Planes agencias</a></div>
+      <div><h4>Profesionales</h4><a href="publicar.html">Publicar anuncio</a><a href="publicar.html">Constructores</a><a>Planes agencias</a></div>
       <div><h4>Nueva Era</h4><a>Contacto</a><a>641 00 00 00</a><a>Aviso legal</a><a>Privacidad</a></div>
     </div>
     <div class="footer__bottom">Nueva Era &copy; 2026 — Portal Inmobiliario</div>
@@ -302,7 +302,7 @@ function renderCards(pisos,gridId){
     return;
   }
   g.innerHTML=pisos.map(p=>`
-    <a href="/piso.html?id=${p.id}" class="card">
+    <a href="piso.html?id=${p.id}" class="card">
       <div class="card__top">
         <img class="card__img" src="${pisoImg(p.id)}" alt="" loading="lazy">
         <div class="card__labels">
@@ -387,7 +387,7 @@ function load(){
 
   document.getElementById('count').innerHTML='<strong>'+total+'</strong> anuncio'+(total!==1?'s':'')+(currentProv?' en '+currentProv:'');
   if(!pisos.length){
-    g.innerHTML='<div class="empty">'+(currentProv?'No hay anuncios en '+currentProv+' aún':'Aún no hay anuncios')+'. <a href="/publicar.html">Publica el primero</a></div>';
+    g.innerHTML='<div class="empty">'+(currentProv?'No hay anuncios en '+currentProv+' aún':'Aún no hay anuncios')+'. <a href="publicar.html">Publica el primero</a></div>';
     return;
   }
   renderCards(pisos,'grid');
