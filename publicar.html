@@ -7,52 +7,59 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root { --gold: #d4af37; --black: #1a1a1a; --white: #ffffff; --cream: #faf8f5; --gray: #6b6b6b; --light-gray: #e8e4df; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #faf9f7; color: #1b1b1f; }
-    .container { max-width: 700px; margin: 0 auto; padding: 0 1.5rem; }
-    header { 
-      background: white; border-bottom: 1px solid #eae7e2; padding: 1rem 1.5rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .back { color: #8a8078; text-decoration: none; font-size: .85rem; }
-    .back:hover { color: #1b1b1f; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--black); }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+    header { background: var(--white); border-bottom: 1px solid var(--light-gray); padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .back { color: var(--gray); text-decoration: none; font-size: .85rem; }
+    .back:hover { color: var(--black); }
+
     .form-wrap { padding: 3rem 0; }
-    .form-wrap h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: .5rem; }
-    .form-wrap .sub { color: #8a8078; margin-bottom: 2rem; font-size: .9rem; }
-    .form-group { margin-bottom: 1.5rem; }
-    .form-group label { display: block; font-weight: 600; font-size: .88rem; margin-bottom: .4rem; color: #1b1b1f; }
+    .form-wrap h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: .3rem; }
+    .form-wrap .sub { color: var(--gray); margin-bottom: 2rem; font-size: .9rem; }
+
+    .form-card { background: var(--white); border-radius: 12px; padding: 2rem; border: 1px solid var(--light-gray); margin-bottom: 1.5rem; }
+    .form-card h3 { font-size: .95rem; font-weight: 600; margin-bottom: 1.25rem; padding-bottom: .75rem; border-bottom: 1px solid var(--light-gray); }
+
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-weight: 500; font-size: .85rem; margin-bottom: .35rem; color: #4a4a4a; }
+    .form-group label .req { color: #c0392b; }
     .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: .85rem 1rem; border: 2px solid #eae7e2; border-radius: 12px;
-      font-size: .9rem; font-family: inherit; outline: none; transition: border-color .2s; background: white;
+      width: 100%; padding: .75rem 1rem; border: 1.5px solid var(--light-gray); border-radius: 8px;
+      font-size: .88rem; font-family: inherit; outline: none; transition: border-color .2s; background: var(--white);
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #d4af37; }
-    .form-group textarea { min-height: 120px; resize: vertical; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .75rem; }
     .form-check { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .form-check label { display: flex; align-items: center; gap: .5rem; font-weight: 400; font-size: .88rem; cursor: pointer; }
-    .form-check input { width: auto; }
+    .form-check label { display: flex; align-items: center; gap: .5rem; font-weight: 400; font-size: .85rem; cursor: pointer; }
+    .form-check input[type="checkbox"] { width: auto; transform: scale(1.1); }
 
     .btn-submit {
-      background: #1b1b1f; color: #faf9f7; width: 100%;
-      padding: .95rem; border: none; border-radius: 50px; font-size: 1rem;
+      background: var(--gold); color: var(--black); width: 100%;
+      padding: .9rem; border: none; border-radius: 8px; font-size: .95rem;
       font-weight: 600; cursor: pointer; font-family: inherit; transition: background .2s;
     }
-    .btn-submit:hover { background: #2d2d35; }
+    .btn-submit:hover { background: #c4a030; }
     .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
 
-    .success-box { text-align: center; padding: 3rem 0; display: none; }
+    .success-box { text-align: center; padding: 4rem 0; display: none; }
     .success-box .icon { font-size: 4rem; margin-bottom: 1rem; }
-    .success-box h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: .5rem; }
-    .success-box p { color: #8a8078; margin-bottom: 2rem; }
+    .success-box h2 { font-size: 1.6rem; margin-bottom: .5rem; }
+    .success-box p { color: var(--gray); margin-bottom: 2rem; }
+    .success-box .btn { display: inline-block; background: var(--gold); color: var(--black); padding: .75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
 
-    .error-msg { color: #c0392b; font-size: .85rem; margin-top: .5rem; display: none; background: #fce8e8; padding: .75rem 1rem; border-radius: 8px; }
+    .error-msg { color: #c0392b; font-size: .85rem; display: none; background: #fce8e8; padding: .75rem 1rem; border-radius: 8px; margin-bottom: 1rem; }
 
     @media (max-width: 768px) {
       .form-row, .form-row-3 { grid-template-columns: 1fr; }
-      .form-wrap h1 { font-size: 1.5rem; }
+      .form-wrap h1 { font-size: 1.4rem; }
+      .form-card { padding: 1.25rem; }
     }
   </style>
 </head>
@@ -63,170 +70,143 @@
 <div class="container">
   <div class="form-wrap" id="form-wrap">
     <h1>Publica tu anuncio</h1>
-    <p class="sub">Rellena los datos y tu piso aparecerá en el portal. Gratis.</p>
+    <p class="sub">Gratis. En 2 minutos tu vivienda está en el portal.</p>
 
     <div class="error-msg" id="error-msg"></div>
 
     <form id="form-publicar" onsubmit="return publicar(event)">
-      <div class="form-group">
-        <label>Título del anuncio</label>
-        <input type="text" id="titulo" placeholder="P.ej: Piso luminoso en el centro de Madrid" required>
-      </div>
-
-      <div class="form-row">
+      <div class="form-card">
+        <h3>🏠 Datos del inmueble</h3>
         <div class="form-group">
-          <label>Provincia *</label>
-          <select id="provincia" required>
-            <option value="">Selecciona</option>
-          </select>
+          <label>Título del anuncio <span class="req">*</span></label>
+          <input type="text" id="titulo" placeholder="P.ej: Piso luminoso en el centro de Madrid" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Provincia <span class="req">*</span></label>
+            <select id="provincia" required><option value="">Selecciona</option></select>
+          </div>
+          <div class="form-group">
+            <label>Ciudad</label>
+            <input type="text" id="ciudad" placeholder="Madrid">
+          </div>
+        </div>
+        <div class="form-row-3">
+          <div class="form-group">
+            <label>Operación <span class="req">*</span></label>
+            <select id="operacion" required>
+              <option value="venta">Venta</option>
+              <option value="alquiler">Alquiler</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tipo <span class="req">*</span></label>
+            <select id="tipo" required>
+              <option value="piso">Piso</option>
+              <option value="casa">Casa</option>
+              <option value="adosado">Adosado</option>
+              <option value="atico">Ático</option>
+              <option value="local">Local</option>
+              <option value="terreno">Terreno</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Precio (€) <span class="req">*</span></label>
+            <input type="number" id="precio" placeholder="150000" required>
+          </div>
+        </div>
+        <div class="form-row-3">
+          <div class="form-group">
+            <label>m²</label>
+            <input type="number" id="m2" placeholder="90">
+          </div>
+          <div class="form-group">
+            <label>Habitaciones</label>
+            <input type="number" id="habitaciones" placeholder="3">
+          </div>
+          <div class="form-group">
+            <label>Baños</label>
+            <input type="number" id="banos" placeholder="1">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Planta</label>
+            <select id="planta">
+              <option value="">—</option>
+              <option>Bajo</option><option>1ª</option><option>2ª</option>
+              <option>3ª</option><option>4ª</option><option>5ª+</option><option>Ático</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Certificado energético</label>
+            <select id="certificado">
+              <option value="">—</option>
+              <option>A</option><option>B</option><option>C</option>
+              <option>D</option><option>E</option><option>F</option><option>G</option>
+            </select>
+          </div>
         </div>
         <div class="form-group">
-          <label>Ciudad</label>
-          <input type="text" id="ciudad" placeholder="Madrid">
-        </div>
-      </div>
-
-      <div class="form-row-3">
-        <div class="form-group">
-          <label>Operación *</label>
-          <select id="operacion" required>
-            <option value="venta">Venta</option>
-            <option value="alquiler">Alquiler</option>
-          </select>
+          <label>Extras</label>
+          <div class="form-check">
+            <label><input type="checkbox" id="ascensor"> Ascensor</label>
+            <label><input type="checkbox" id="garaje"> Garaje</label>
+            <label><input type="checkbox" id="terraza"> Terraza</label>
+          </div>
         </div>
         <div class="form-group">
-          <label>Tipo *</label>
-          <select id="tipo" required>
-            <option value="piso">Piso</option>
-            <option value="casa">Casa</option>
-            <option value="adosado">Adosado</option>
-            <option value="atico">Ático</option>
-            <option value="local">Local</option>
-            <option value="terreno">Terreno</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Precio (€) *</label>
-          <input type="number" id="precio" placeholder="150000" required>
-        </div>
-      </div>
-
-      <div class="form-row-3">
-        <div class="form-group">
-          <label>m² construidos</label>
-          <input type="number" id="m2" placeholder="90">
-        </div>
-        <div class="form-group">
-          <label>Habitaciones</label>
-          <input type="number" id="habitaciones" placeholder="3">
-        </div>
-        <div class="form-group">
-          <label>Baños</label>
-          <input type="number" id="banos" placeholder="1">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Planta</label>
-          <select id="planta">
-            <option value="">—</option>
-            <option value="Bajo">Bajo</option>
-            <option value="1ª">1ª</option>
-            <option value="2ª">2ª</option>
-            <option value="3ª">3ª</option>
-            <option value="4ª">4ª</option>
-            <option value="5ª+">5ª o superior</option>
-            <option value="Ático">Ático</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Certificado energético</label>
-          <select id="certificado">
-            <option value="">—</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
-            <option value="G">G</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Extras</label>
-        <div class="form-check">
-          <label><input type="checkbox" id="ascensor"> Ascensor</label>
-          <label><input type="checkbox" id="garaje"> Garaje</label>
-          <label><input type="checkbox" id="terraza"> Terraza</label>
+          <label>Descripción</label>
+          <textarea id="descripcion" placeholder="Describe tu vivienda: estado, orientación, calidades, entorno..."></textarea>
         </div>
       </div>
 
-      <div class="form-group">
-        <label>Descripción</label>
-        <textarea id="descripcion" placeholder="Describe tu piso: estado, orientación, entorno, calidades..."></textarea>
-      </div>
-
-      <hr style="border:none;border-top:1px solid #eae7e2;margin:1.5rem 0">
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nombre de contacto *</label>
-          <input type="text" id="nombre_contacto" required>
+      <div class="form-card">
+        <h3>📞 Datos de contacto</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre <span class="req">*</span></label>
+            <input type="text" id="nombre_contacto" required>
+          </div>
+          <div class="form-group">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" id="email_contacto" required>
+          </div>
         </div>
         <div class="form-group">
-          <label>Email de contacto *</label>
-          <input type="email" id="email_contacto" required>
+          <label>Teléfono (recomendado)</label>
+          <input type="tel" id="telefono_contacto" placeholder="+34 600 00 00 00">
         </div>
-      </div>
-      <div class="form-group">
-        <label>Teléfono (opcional)</label>
-        <input type="tel" id="telefono_contacto" placeholder="+34 600 000 000">
       </div>
 
       <button type="submit" class="btn-submit" id="btn-submit">Publicar anuncio →</button>
-      <p style="text-align:center;margin-top:.75rem;font-size:.78rem;color:#8a8078">Al publicar, aceptas que tus datos de contacto aparezcan en el anuncio.</p>
+      <p style="text-align:center;margin-top:.75rem;font-size:.75rem;color:var(--gray)">Al publicar, aceptas que tus datos de contacto aparezcan en el anuncio.</p>
     </form>
   </div>
 
   <div class="success-box" id="success-box">
     <div class="icon">✅</div>
     <h2>¡Anuncio publicado!</h2>
-    <p>Tu piso ya está en el portal. Comparte el enlace para que lo vean.</p>
-    <a href="/" class="back" style="color:#d4af37;font-weight:600">Volver al portal</a>
+    <p>Tu vivienda ya está en Nueva Era.</p>
+    <a href="/" class="btn">Volver al portal</a>
   </div>
 </div>
 
 <script>
 const API = 'https://wypgqpgjlookbhuaiyxa.supabase.co/functions/v1/nueva-era';
-const PROVINCIAS = [
-  'Álava','Albacete','Alicante','Almería','Asturias','Ávila','Badajoz','Baleares',
-  'Barcelona','Burgos','Cáceres','Cádiz','Cantabria','Castellón','Ceuta','Ciudad Real',
-  'Córdoba','A Coruña','Cuenca','Girona','Granada','Guadalajara','Gipuzkoa','Huelva',
-  'Huesca','Jaén','León','Lleida','Lugo','Madrid','Málaga','Melilla','Murcia',
-  'Navarra','Ourense','Palencia','Las Palmas','Pontevedra','La Rioja','Salamanca',
-  'Santa Cruz de Tenerife','Segovia','Sevilla','Soria','Tarragona','Teruel','Toledo',
-  'Valencia','Valladolid','Vizcaya','Zamora','Zaragoza'
-];
+const PROVINCIAS = ['Álava','Albacete','Alicante','Almería','Asturias','Ávila','Badajoz','Baleares','Barcelona','Burgos','Cáceres','Cádiz','Cantabria','Castellón','Ceuta','Ciudad Real','Córdoba','A Coruña','Cuenca','Girona','Granada','Guadalajara','Gipuzkoa','Huelva','Huesca','Jaén','León','Lleida','Lugo','Madrid','Málaga','Melilla','Murcia','Navarra','Ourense','Palencia','Las Palmas','Pontevedra','La Rioja','Salamanca','Santa Cruz de Tenerife','Segovia','Sevilla','Soria','Tarragona','Teruel','Toledo','Valencia','Valladolid','Vizcaya','Zamora','Zaragoza'];
 
 document.addEventListener('DOMContentLoaded', () => {
-  const sel = document.getElementById('provincia');
   PROVINCIAS.sort().forEach(p => {
-    const opt = document.createElement('option');
-    opt.value = p;
-    opt.textContent = p;
-    sel.appendChild(opt);
+    const o = document.createElement('option'); o.value = p; o.textContent = p;
+    document.getElementById('provincia').appendChild(o);
   });
 });
 
 async function publicar(e) {
   e.preventDefault();
   const btn = document.getElementById('btn-submit');
-  btn.disabled = true;
-  btn.textContent = '⏳ Publicando...';
-
+  btn.disabled = true; btn.textContent = '⏳ Publicando...';
   const data = {
     titulo: document.getElementById('titulo').value,
     provincia: document.getElementById('provincia').value,
@@ -248,28 +228,21 @@ async function publicar(e) {
     telefono_contacto: document.getElementById('telefono_contacto').value,
     fotos: [],
   };
-
   try {
-    const res = await fetch(API + '?action=publicar', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
+    const res = await fetch(API + '?action=publicar', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     const result = await res.json();
     if (!res.ok || result.error) {
       document.getElementById('error-msg').style.display = 'block';
       document.getElementById('error-msg').textContent = result.error || 'Error al publicar';
-      btn.disabled = false;
-      btn.textContent = 'Publicar anuncio →';
+      btn.disabled = false; btn.textContent = 'Publicar anuncio →';
       return;
     }
     document.getElementById('form-wrap').style.display = 'none';
     document.getElementById('success-box').style.display = 'block';
   } catch (err) {
     document.getElementById('error-msg').style.display = 'block';
-    document.getElementById('error-msg').textContent = 'Error de conexión. Inténtalo de nuevo.';
-    btn.disabled = false;
-    btn.textContent = 'Publicar anuncio →';
+    document.getElementById('error-msg').textContent = 'Error de conexión.';
+    btn.disabled = false; btn.textContent = 'Publicar anuncio →';
   }
 }
 </script>

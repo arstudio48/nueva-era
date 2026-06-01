@@ -3,110 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Piso — Nueva Era</title>
+  <title>Detalle — Nueva Era</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root { --gold: #d4af37; --black: #1a1a1a; --white: #ffffff; --cream: #faf8f5; --gray: #6b6b6b; --light-gray: #e8e4df; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #faf9f7; color: #1b1b1f; }
-    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
-    header { 
-      background: white; border-bottom: 1px solid #eae7e2; padding: 1rem 1.5rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .back { color: #8a8078; text-decoration: none; font-size: .85rem; }
-    .back:hover { color: #1b1b1f; }
-    .detalle { padding: 3rem 0; }
-    .detalle .img-hero {
-      width: 100%; height: 350px; background: #eae7e2; border-radius: 20px;
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--black); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    header { background: var(--white); border-bottom: 1px solid var(--light-gray); padding: 1rem 2rem; display: flex; align-items: center; gap: 1rem; position: sticky; top: 0; z-index: 100; }
+    .back { color: var(--gray); text-decoration: none; font-size: .85rem; display: flex; align-items: center; gap: .4rem; }
+    .back:hover { color: var(--black); }
+    .logo-sm { margin-left: auto; font-size: .85rem; font-weight: 700; color: var(--black); }
+    .logo-sm span { color: var(--gold); }
+
+    .detalle { padding: 2rem 0; display: grid; grid-template-columns: 1fr 380px; gap: 2rem; }
+
+    .main-col .img-hero {
+      width: 100%; height: 400px; background: var(--sand); border-radius: 16px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 5rem; margin-bottom: 2rem; overflow: hidden;
+      font-size: 6rem; margin-bottom: 1.5rem; overflow: hidden; position: relative;
     }
-    .detalle h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: .5rem; }
-    .detalle .ubicacion { color: #8a8078; font-size: .95rem; margin-bottom: .5rem; }
-    .detalle .precio { font-size: 2rem; font-weight: 800; color: #d4af37; margin-bottom: 2rem; }
-    .carac-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-    .carac-item { background: white; border: 1px solid #eae7e2; border-radius: 12px; padding: 1rem; text-align: center; }
-    .carac-item .val { font-size: 1.1rem; font-weight: 700; color: #1b1b1f; }
-    .carac-item .lbl { font-size: .78rem; color: #8a8078; margin-top: .2rem; }
-    .descripcion { background: white; border-radius: 16px; padding: 2rem; border: 1px solid #eae7e2; margin-bottom: 2rem; line-height: 1.7; color: #4a4642; font-size: .92rem; }
-    .contacto-card { background: #1b1b1f; border-radius: 16px; padding: 2rem; color: #faf9f7; }
-    .contacto-card h3 { color: #d4af37; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 1rem; }
-    .contacto-card p { font-size: .9rem; margin-bottom: .3rem; color: #b0a89e; }
-    .contacto-card strong { color: #faf9f7; }
-    .contacto-card .btn-contactar { background: #d4af37; color: #1b1b1f; border: none; padding: .85rem 2rem; border-radius: 50px; font-weight: 600; font-size: .9rem; cursor: pointer; font-family: inherit; width: 100%; margin-top: 1rem; transition: background .2s; }
-    .contacto-card .btn-contactar:hover { background: #c4a030; }
-    .loading { text-align: center; padding: 4rem; color: #8a8078; }
-    .error { text-align: center; padding: 4rem; color: #c0392b; }
-    @media (max-width: 768px) {
-      .detalle .img-hero { height: 220px; }
-      .detalle h1 { font-size: 1.5rem; }
-      .detalle .precio { font-size: 1.5rem; }
+    .main-col h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: .3rem; }
+    .main-col .ubi { color: var(--gray); font-size: .9rem; margin-bottom: .5rem; }
+    .main-col .precio { font-size: 2rem; font-weight: 800; color: var(--gold); margin-bottom: 1.5rem; }
+
+    .carac { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: .75rem; margin-bottom: 2rem; }
+    .carac-item { background: var(--white); border: 1px solid var(--light-gray); border-radius: 10px; padding: 1rem .75rem; text-align: center; }
+    .carac-item .val { font-size: 1rem; font-weight: 700; }
+    .carac-item .lbl { font-size: .72rem; color: var(--gray); margin-top: .2rem; }
+
+    .desc-box { background: var(--white); border-radius: 12px; padding: 1.5rem; border: 1px solid var(--light-gray); margin-bottom: 1.5rem; }
+    .desc-box h3 { font-size: 1rem; margin-bottom: .75rem; }
+    .desc-box p { font-size: .88rem; line-height: 1.7; color: #4a4a4a; }
+
+    .sidebar { }
+    .contact-card {
+      background: var(--white); border-radius: 12px; padding: 1.5rem;
+      border: 1px solid var(--light-gray); position: sticky; top: 6rem;
+    }
+    .contact-card h3 { font-size: 1rem; margin-bottom: 1rem; }
+    .contact-card .info { margin-bottom: 1rem; }
+    .contact-card .info p { font-size: .85rem; color: #4a4a4a; margin-bottom: .3rem; }
+    .contact-card .info strong { color: var(--black); }
+    .contact-card .btn { background: var(--gold); color: var(--black); width: 100%; padding: .85rem; border: none; border-radius: 8px; font-weight: 600; font-size: .9rem; cursor: pointer; font-family: inherit; transition: background .2s; }
+    .contact-card .btn:hover { background: #c4a030; }
+    .contact-card .btn-sec { background: transparent; border: 1px solid var(--light-gray); margin-top: .5rem; color: var(--gray); }
+    .contact-card .btn-sec:hover { border-color: var(--gold); color: var(--black); }
+    .contact-card .ref { font-size: .75rem; color: var(--gray); text-align: center; margin-top: .75rem; }
+    .contact-card .tel { font-size: 1.1rem; font-weight: 700; color: var(--black); text-align: center; margin-bottom: 1rem; }
+
+    .loading { text-align: center; padding: 5rem; color: var(--gray); grid-column: 1/-1; }
+    .error { text-align: center; padding: 5rem; color: #c0392b; grid-column: 1/-1; }
+
+    @media (max-width: 900px) {
+      .detalle { grid-template-columns: 1fr; }
+      .main-col .img-hero { height: 250px; }
+      .sidebar { order: -1; }
+      .contact-card { position: static; }
+      .container { padding: 0 1rem; }
     }
   </style>
 </head>
 <body>
 <header>
-  <a href="/" class="back">← Volver al portal</a>
+  <a href="/" class="back">← Volver</a>
+  <div class="logo-sm">Nueva <span>Era</span></div>
 </header>
 <div class="container">
   <div class="detalle" id="detalle">
-    <div class="loading"><div class="spinner" style="width:40px;height:40px;border:4px solid #eae7e2;border-top-color:#d4af37;border-radius:50%;animation:spin .6s linear infinite;margin:0 auto 1rem"></div><p>Cargando piso...</p></div>
+    <div class="loading"><div class="spinner" style="width:40px;height:40px;border:4px solid var(--light-gray);border-top-color:var(--gold);border-radius:50%;animation:spin .6s linear infinite;margin:0 auto 1rem"></div><p>Cargando...</p></div>
   </div>
 </div>
 <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 <script>
 const API = 'https://wypgqpgjlookbhuaiyxa.supabase.co/functions/v1/nueva-era';
-const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
+const id = new URLSearchParams(window.location.search).get('id');
+if (!id) { document.getElementById('detalle').innerHTML = '<div class="error"><h2>Enlace inválido</h2></div>'; } else { cargar(); }
 
-if (!id) {
-  document.getElementById('detalle').innerHTML = '<div class="error"><h2>Enlace inválido</h2></div>';
-} else {
-  cargarDetalle();
-}
-
-async function cargarDetalle() {
+async function cargar() {
   try {
     const res = await fetch(API + '?action=detalle&id=' + id);
     const data = await res.json();
-    if (!data.piso) {
-      document.getElementById('detalle').innerHTML = '<div class="error"><h2>Piso no encontrado</h2></div>';
-      return;
-    }
-    renderDetalle(data.piso);
-  } catch(e) {
-    document.getElementById('detalle').innerHTML = '<div class="error"><h2>Error al cargar</h2></div>';
-  }
+    if (!data.piso) { document.getElementById('detalle').innerHTML = '<div class="error"><h2>Piso no encontrado</h2></div>'; return; }
+    render(data.piso);
+  } catch(e) { document.getElementById('detalle').innerHTML = '<div class="error"><h2>Error al cargar</h2></div>'; }
 }
 
-function renderDetalle(p) {
+function render(p) {
   const emoji = p.tipo === 'piso' ? '🏢' : p.tipo === 'casa' ? '🏠' : p.tipo === 'ático' ? '🏛️' : '🏡';
-  document.title = p.titulo + ' — Nueva Era';
+  document.title = (p.titulo || 'Vivienda') + ' — Nueva Era';
+
+  const extras = [];
+  if (p.ascensor) extras.push('Ascensor');
+  if (p.garaje) extras.push('Garaje');
+  if (p.terraza) extras.push('Terraza');
+  const extrasStr = extras.length ? '<div class="carac-item"><div class="val">' + extras.join(' · ') + '</div><div class="lbl">Extras</div></div>' : '';
+
   document.getElementById('detalle').innerHTML = `
-    <div class="img-hero"><span style="opacity:.3;font-size:6rem">${emoji}</span></div>
-    <h1>${p.titulo}</h1>
-    <div class="ubicacion">📍 ${p.ciudad ? p.ciudad + ', ' : ''}${p.provincia || ''}</div>
-    <div class="precio">${p.precio?.toLocaleString('es-ES')} €</div>
-    <div class="carac-grid">
-      ${p.m2 ? '<div class="carac-item"><div class="val">' + p.m2 + ' m²</div><div class="lbl">Superficie</div></div>' : ''}
-      ${p.habitaciones ? '<div class="carac-item"><div class="val">' + p.habitaciones + '</div><div class="lbl">Habitaciones</div></div>' : ''}
-      ${p.banos ? '<div class="carac-item"><div class="val">' + p.banos + '</div><div class="lbl">Baños</div></div>' : ''}
-      ${p.planta ? '<div class="carac-item"><div class="val">' + p.planta + '</div><div class="lbl">Planta</div></div>' : ''}
-      ${p.ascensor ? '<div class="carac-item"><div class="val">✅</div><div class="lbl">Ascensor</div></div>' : ''}
-      ${p.garaje ? '<div class="carac-item"><div class="val">✅</div><div class="lbl">Garaje</div></div>' : ''}
-      ${p.terraza ? '<div class="carac-item"><div class="val">✅</div><div class="lbl">Terraza</div></div>' : ''}
-      ${p.certificado_energetico ? '<div class="carac-item"><div class="val">' + p.certificado_energetico + '</div><div class="lbl">Certificado</div></div>' : ''}
+    <div class="main-col">
+      <div class="img-hero"><span style="opacity:.2">${emoji}</span></div>
+      <h1>${p.titulo || 'Vivienda'}</h1>
+      <div class="ubi">📍 ${[p.ciudad, p.provincia].filter(Boolean).join(', ')}</div>
+      <div class="precio">${(p.precio||0).toLocaleString('es-ES')} €</div>
+
+      <div class="carac">
+        ${p.m2 ? '<div class="carac-item"><div class="val">' + p.m2 + ' m²</div><div class="lbl">Superficie</div></div>' : ''}
+        ${p.habitaciones ? '<div class="carac-item"><div class="val">' + p.habitaciones + '</div><div class="lbl">Habitaciones</div></div>' : ''}
+        ${p.banos ? '<div class="carac-item"><div class="val">' + p.banos + '</div><div class="lbl">Baños</div></div>' : ''}
+        ${p.planta ? '<div class="carac-item"><div class="val">' + p.planta + '</div><div class="lbl">Planta</div></div>' : ''}
+        ${p.certificado_energetico ? '<div class="carac-item"><div class="val">' + p.certificado_energetico + '</div><div class="lbl">Certificado</div></div>' : ''}
+        ${extrasStr}
+        <div class="carac-item"><div class="val">${p.operacion === 'alquiler' ? 'Alquiler' : 'Venta'}</div><div class="lbl">Operación</div></div>
+      </div>
+
+      ${p.descripcion ? '<div class="desc-box"><h3>📝 Descripción</h3><p>' + p.descripcion.replace(/\n/g,'<br>') + '</p></div>' : ''}
+      <div class="desc-box"><h3>📍 Ubicación</h3><p>${[p.ciudad, p.provincia].filter(Boolean).join(', ')}${p.codigo_postal ? ' · CP: ' + p.codigo_postal : ''}</p></div>
     </div>
-    ${p.descripcion ? '<div class="descripcion">' + p.descripcion.replace(/\n/g, '<br>') + '</div>' : ''}
-    <div class="contacto-card">
-      <h3>📞 Contacto</h3>
-      <p><strong>Contacto:</strong> ${p.nombre_contacto || '—'}</p>
-      <p><strong>Email:</strong> <a href="mailto:${p.email_contacto}" style="color:#d4af37">${p.email_contacto}</a></p>
-      ${p.telefono_contacto ? '<p><strong>Teléfono:</strong> ' + p.telefono_contacto + '</p>' : ''}
-      <button class="btn-contactar" onclick="window.location.href='mailto:'+encodeURIComponent('${p.email_contacto}')+'?subject=Interesado en '+encodeURIComponent('${p.titulo}')+'&body=Hola, vi tu anuncio en Nueva Era y estoy interesado.'">Enviar mensaje ✉️</button>
+    <div class="sidebar">
+      <div class="contact-card">
+        <h3>📞 Contacto</h3>
+        ${p.telefono_contacto ? '<div class="tel">' + p.telefono_contacto + '</div>' : ''}
+        <div class="info">
+          <p><strong>Contacto:</strong> ${p.nombre_contacto || '—'}</p>
+          <p><strong>Email:</strong> <a href="mailto:${p.email_contacto}" style="color:var(--gold)">${p.email_contacto}</a></p>
+        </div>
+        <button class="btn" onclick="window.location.href='mailto:'+encodeURIComponent('${p.email_contacto}')+'?subject='+encodeURIComponent('Interesado en: ${p.titulo || 'Vivienda'}')">Enviar mensaje ✉️</button>
+        <button class="btn btn-sec" onclick="window.open('https://wa.me/34' + encodeURIComponent('${p.telefono_contacto || ''}') + '?text=' + encodeURIComponent('Hola, vi tu anuncio en Nueva Era. ¿Está disponible?'))">WhatsApp 💬</button>
+        <div class="ref">Ref: ${p.id.slice(0,8).toUpperCase()} · ${new Date(p.created_at).toLocaleDateString('es-ES')}</div>
+      </div>
     </div>
   `;
 }
