@@ -4,432 +4,321 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nueva Era — Portal Inmobiliario</title>
-  <meta name="description" content="Portal inmobiliario con las mejores viviendas. Compra, venta y alquiler. Obra nueva, pisos, casas y áticos. Publica tu anuncio gratis.">
-  <meta property="og:title" content="Nueva Era — Portal Inmobiliario">
-  <meta property="og:description" content="Encuentra tu hogar. El portal inmobiliario con las mejores viviendas de toda España.">
-  <meta property="og:image" content="https://arstudio48.github.io/nueva-era/og-image.png">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="description" content="Portal inmobiliario con las mejores viviendas de toda España. Compra, venta y alquiler. Fotos reales, buscador avanzado.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
   <style>
-    :root { --gold: #d4af37; --black: #1a1a1a; --white: #ffffff; --cream: #faf8f5; --sand: #f2ede6; --gray: #6b6b6b; --light-gray: #e8e4df; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--black); }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --gold: #c8a263; --gold-light: #e8d5a3; --black: #0f0f0f; --white: #ffffff; --bg: #f5f3ef; --gray: #6b6560; --border: #e0dbd4; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--black); -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 1260px; margin: 0 auto; padding: 0 24px; }
 
-    /* ==================== HEADER ==================== */
-    .top-bar {
-      background: var(--black); color: #ccc; padding: .4rem 0; font-size: .75rem;
-    }
-    .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
-    .top-bar a { color: #ccc; text-decoration: none; margin-left: 1.25rem; }
-    .top-bar a:hover { color: var(--gold); }
-
+    /* ======== HEADER ======== */
     header {
-      background: var(--white); border-bottom: 1px solid var(--light-gray);
-      padding: 0 2rem; height: 72px;
-      display: flex; align-items: center; justify-content: space-between;
-      position: sticky; top: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); height: 64px;
     }
-    .logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
-    .logo-icon { width: 40px; height: 40px; background: var(--black); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .9rem; color: var(--gold); }
-    .logo-text { font-size: 1.25rem; font-weight: 800; color: var(--black); letter-spacing: -.5px; }
-    .logo-text small { display: block; font-size: .55rem; font-weight: 400; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; margin-top: -2px; }
-    nav { display: flex; align-items: center; gap: 2rem; }
-    nav a { text-decoration: none; color: #4a4a4a; font-size: .88rem; font-weight: 500; transition: color .2s; }
-    nav a:hover { color: var(--gold); }
-    .btn-pub { background: var(--gold); color: var(--black) !important; padding: .6rem 1.5rem; border-radius: 6px; font-weight: 600; font-size: .85rem; }
-    .btn-pub:hover { background: #c4a030; color: var(--black) !important; }
+    header .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-weight: 700; font-size: 1.15rem; text-decoration: none; color: var(--black); display: flex; align-items: center; gap: 8px; }
+    .logo span { color: var(--gold); }
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a { text-decoration: none; color: #555; font-size: .85rem; font-weight: 500; transition: color .15s; }
+    nav a:hover { color: var(--black); }
+    .btn-header { background: var(--black); color: var(--white) !important; padding: 8px 18px; border-radius: 6px; font-weight: 600; }
+    .btn-header:hover { background: #222 !important; color: var(--white) !important; }
 
-    /* ==================== HERO ==================== */
+    /* ======== HERO ======== */
     .hero {
-      background: linear-gradient(135deg, var(--black) 0%, #2a2a2a 100%);
-      padding: 4rem 0 5rem; color: var(--white); position: relative; overflow: hidden;
+      margin-top: 64px; height: 85vh; min-height: 520px;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      position: relative; overflow: hidden; display: flex; align-items: center;
     }
-    .hero::before {
-      content: ''; position: absolute; top: -50%; right: -20%;
-      width: 600px; height: 600px; background: radial-gradient(circle, rgba(212,175,55,.06) 0%, transparent 70%);
-      border-radius: 50%;
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80') center/cover;
+      opacity: .35; z-index: 0;
     }
-    .hero .container { position: relative; z-index: 1; }
-    .hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.15; margin-bottom: .75rem; }
-    .hero h1 span { color: var(--gold); }
-    .hero p { font-size: 1rem; color: #999; max-width: 550px; line-height: 1.6; margin-bottom: 2rem; }
+    .hero .wrap { position: relative; z-index: 1; width: 100%; }
+    .hero-content { max-width: 640px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; color: var(--white); letter-spacing: -.5px; }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero p { color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.6; margin: 16px 0 32px; max-width: 480px; }
 
     .hero-search {
-      background: var(--white); border-radius: 12px; padding: .4rem;
-      display: flex; align-items: center; max-width: 750px;
-      box-shadow: 0 8px 40px rgba(0,0,0,.2);
+      background: var(--white); border-radius: 10px; padding: 6px;
+      display: flex; align-items: center; max-width: 700px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.3);
     }
     .hero-search input, .hero-search select {
-      flex: 1; border: none; padding: .85rem 1rem; font-size: .9rem;
-      font-family: inherit; outline: none; background: transparent; color: var(--black);
+      border: none; padding: 12px 14px; font-size: .88rem; font-family: inherit;
+      outline: none; background: transparent; color: var(--black); flex: 1; min-width: 0;
     }
-    .hero-search .divider { width: 1px; height: 30px; background: var(--light-gray); flex-shrink: 0; }
-    .hero-search select { cursor: pointer; min-width: 130px; color: var(--gray); }
+    .hero-search select { cursor: pointer; color: #555; border-left: 1px solid var(--border); min-width: 120px; }
     .hero-search button {
-      background: var(--gold); border: none; border-radius: 8px;
-      padding: .85rem 2rem; font-weight: 600; font-size: .9rem;
-      cursor: pointer; font-family: inherit; color: var(--black); white-space: nowrap;
-      transition: background .2s; margin-left: .25rem;
+      background: var(--gold); border: none; border-radius: 8px; padding: 12px 28px;
+      font-weight: 600; font-size: .88rem; cursor: pointer; font-family: inherit;
+      color: var(--black); white-space: nowrap; transition: background .15s;
     }
-    .hero-search button:hover { background: #c4a030; }
+    .hero-search button:hover { background: #b8924e; }
 
-    .hero-tags { margin-top: 1.5rem; display: flex; gap: .75rem; flex-wrap: wrap; }
-    .hero-tags a { color: #777; text-decoration: none; font-size: .82rem; padding: .35rem 1rem; border: 1px solid #444; border-radius: 20px; transition: all .2s; }
-    .hero-tags a:hover { border-color: var(--gold); color: var(--gold); }
+    /* ======== TABS ======== */
+    .tabs { display: flex; gap: 0; margin-bottom: 24px; background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    .tabs button { flex: 1; padding: 14px; border: none; background: transparent; font-size: .88rem; font-weight: 500; cursor: pointer; font-family: inherit; color: #888; transition: all .15s; border-bottom: 2px solid transparent; }
+    .tabs button:hover { color: var(--black); }
+    .tabs button.active { color: var(--black); font-weight: 600; border-bottom-color: var(--gold); background: #faf9f7; }
 
-    /* ==================== BANNER PROMOTORAS ==================== */
-    .banner-promo {
-      background: var(--white); border-bottom: 1px solid var(--light-gray);
-      padding: 1.5rem 0; text-align: center;
-    }
-    .banner-promo .label { font-size: .7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gray); margin-bottom: .75rem; }
-    .banner-promo .logos { display: flex; gap: 2rem; justify-content: center; align-items: center; flex-wrap: wrap; }
-    .banner-promo .logos span { font-size: .85rem; color: #888; font-weight: 500; }
-
-    /* ==================== DESTACADOS ==================== */
-    .section { padding: 4rem 0; }
-    .section-dark { background: var(--black); color: var(--white); }
-    .section-dark h2 { color: var(--white); }
-    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-    .section-header h2 { font-size: 1.5rem; font-weight: 700; margin: 0; }
-    .section-header .ver-todas { color: var(--gold); text-decoration: none; font-size: .88rem; font-weight: 500; }
-    .section-header .ver-todas:hover { text-decoration: underline; }
-
-    .grid-pisos { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.25rem; }
+    /* ======== GRID ======== */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; }
 
     .card {
-      background: var(--white); border-radius: 12px; overflow: hidden;
-      border: 1px solid var(--light-gray); transition: all .25s;
+      background: var(--white); border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border); transition: all .2s;
       text-decoration: none; color: inherit; display: block;
+      cursor: pointer; position: relative;
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.08); }
-    .card .thumb {
-      height: 200px; background: var(--sand); position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
+    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,.06); }
+    .card .img {
+      height: 200px; background: #e8e4de; position: relative; overflow: hidden;
     }
-    .card .thumb .precio-tag {
-      position: absolute; bottom: .75rem; right: .75rem;
-      background: rgba(0,0,0,.75); color: var(--white);
-      padding: .35rem .85rem; border-radius: 6px; font-weight: 700; font-size: .9rem;
-      backdrop-filter: blur(4px);
-    }
-    .card .thumb .tipo-tag {
-      position: absolute; top: .75rem; left: .75rem;
-      background: var(--gold); color: var(--black);
-      padding: .25rem .7rem; border-radius: 4px; font-size: .72rem; font-weight: 600;
-    }
-    .card .thumb .destacado-tag {
-      position: absolute; top: .75rem; right: .75rem;
-      background: var(--gold); color: var(--black);
-      padding: .25rem .7rem; border-radius: 4px; font-size: .72rem; font-weight: 700;
-    }
-    .card .info { padding: 1.25rem; }
-    .card .info h3 { font-size: .95rem; font-weight: 600; margin-bottom: .2rem; color: var(--black); }
-    .card .info .ubi { font-size: .82rem; color: var(--gray); margin-bottom: .6rem; }
-    .card .info .chips { display: flex; gap: .75rem; flex-wrap: wrap; }
-    .card .info .chips span { font-size: .78rem; color: #555; }
-    .card .info .chips .sep { color: var(--light-gray); }
+    .card .img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+    .card:hover .img img { transform: scale(1.03); }
+    .card .img .tag { position: absolute; top: 12px; left: 12px; background: var(--gold); color: var(--black); padding: 4px 10px; border-radius: 4px; font-size: .72rem; font-weight: 700; }
+    .card .img .price { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,.7); color: var(--white); padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: .9rem; backdrop-filter: blur(4px); }
+    .card .img .fav { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; background: rgba(255,255,255,.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .85rem; cursor: pointer; backdrop-filter: blur(4px); border: none; }
+    .card .body { padding: 14px 16px 16px; }
+    .card .body h3 { font-size: .9rem; font-weight: 600; margin-bottom: 3px; }
+    .card .body .loc { font-size: .8rem; color: var(--gray); margin-bottom: 8px; }
+    .card .body .specs { display: flex; gap: 12px; font-size: .78rem; color: #555; }
+    .card .body .specs span { display: flex; align-items: center; gap: 3px; }
 
-    .card-promo {
-      background: linear-gradient(135deg, var(--black) 0%, #2a2a2a 100%);
-      border-radius: 12px; overflow: hidden; border: none;
-      padding: 2rem; text-decoration: none; color: var(--white); display: block;
-      transition: all .25s; position: relative;
-    }
-    .card-promo:hover { transform: translateY(-4px); }
-    .card-promo .badge { display: inline-block; background: var(--gold); color: var(--black); padding: .2rem .7rem; border-radius: 4px; font-size: .7rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; margin-bottom: .75rem; }
-    .card-promo h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .5rem; }
-    .card-promo p { color: #999; font-size: .85rem; line-height: 1.5; margin-bottom: 1rem; }
-    .card-promo .btn-outline { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: .5rem 1.25rem; border-radius: 6px; font-size: .82rem; font-weight: 500; }
+    /* ======== SECTIONS ======== */
+    section { padding: 48px 0; }
+    .section-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
+    .section-sub { color: var(--gray); font-size: .88rem; margin-bottom: 24px; }
 
-    /* ==================== PROVINCIAS ==================== */
-    .prov-grid { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+    /* ======== PROMO ======== */
+    .promo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
+    .promo-card {
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a); border-radius: 10px;
+      padding: 28px; color: var(--white); position: relative; overflow: hidden;
+    }
+    .promo-card::after { content: ''; position: absolute; top: -50%; right: -30%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(200,162,99,.08), transparent 60%); border-radius: 50%; }
+    .promo-card .badge { display: inline-block; background: var(--gold); color: var(--black); padding: 3px 10px; border-radius: 3px; font-size: .7rem; font-weight: 700; letter-spacing: .3px; margin-bottom: 12px; }
+    .promo-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; position: relative; z-index: 1; }
+    .promo-card p { color: rgba(255,255,255,.5); font-size: .82rem; line-height: 1.5; margin-bottom: 16px; position: relative; z-index: 1; }
+    .promo-card .btn { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 8px 18px; border-radius: 6px; font-size: .8rem; font-weight: 500; text-decoration: none; position: relative; z-index: 1; transition: all .15s; }
+    .promo-card .btn:hover { background: var(--gold); color: var(--black); }
+
+    /* ======== PROVINCIAS ======== */
+    .prov-grid { display: flex; flex-wrap: wrap; gap: 6px; }
     .prov-grid a {
-      padding: .5rem 1.2rem; background: var(--white); border: 1px solid var(--light-gray);
-      border-radius: 6px; color: #4a4a4a; text-decoration: none; font-size: .82rem;
-      transition: all .15s;
+      padding: 6px 16px; background: var(--white); border: 1px solid var(--border);
+      border-radius: 6px; color: #555; text-decoration: none; font-size: .8rem; transition: all .15s;
     }
     .prov-grid a:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ==================== FOOTER ==================== */
-    footer { background: var(--black); color: #888; padding: 3rem 0 2rem; }
-    footer .grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
-    footer h4 { color: var(--white); font-size: .9rem; margin-bottom: 1rem; }
-    footer p { font-size: .82rem; line-height: 1.6; }
-    footer a { color: #888; text-decoration: none; font-size: .82rem; display: block; margin-bottom: .5rem; }
+    /* ======== FOOTER ======== */
+    footer { background: #0f0f0f; color: rgba(255,255,255,.5); padding: 40px 0 24px; }
+    footer .grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+    footer h4 { color: var(--white); font-size: .82rem; margin-bottom: 12px; }
+    footer p { font-size: .8rem; line-height: 1.6; }
+    footer a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; display: block; margin-bottom: 6px; }
     footer a:hover { color: var(--gold); }
-    footer .bottom { border-top: 1px solid #333; padding-top: 1.5rem; text-align: center; font-size: .78rem; }
+    footer .bottom { border-top: 1px solid #222; padding-top: 20px; margin-top: 28px; text-align: center; font-size: .75rem; }
 
-    .spinner {
-      width: 36px; height: 36px; border: 3px solid var(--light-gray); border-top-color: var(--gold);
-      border-radius: 50%; animation: spin .6s linear infinite; margin: 2rem auto;
-    }
+    .spinner { width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin .6s infinite; margin: 40px auto; }
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    .no-results { text-align: center; padding: 4rem 2rem; color: var(--gray); grid-column: 1/-1; }
+    .empty { text-align: center; padding: 60px 20px; color: var(--gray); grid-column:1/-1; }
 
     @media (max-width: 768px) {
-      .container { padding: 0 1rem; }
-      header { padding: 0 1rem; height: 60px; }
-      nav a { font-size: .8rem; }
-      nav { gap: .8rem; }
-      .hero h1 { font-size: 1.8rem; }
-      .hero-search { flex-direction: column; padding: .75rem; }
-      .hero-search .divider { display: none; }
-      .hero-search select { width: 100%; border-top: 1px solid var(--light-gray); }
-      .hero-search button { width: 100%; margin-left: 0; margin-top: .25rem; }
-      .section-header { flex-direction: column; align-items: flex-start; gap: .5rem; }
-      .grid-pisos { grid-template-columns: 1fr; }
+      header .wrap { padding: 0 16px; }
+      .wrap { padding: 0 16px; }
+      .hero { height: auto; padding: 60px 0; }
+      .hero-search { flex-direction: column; padding: 8px; }
+      .hero-search select { border-left: none; border-top: 1px solid var(--border); width: 100%; }
+      .hero-search button { width: 100%; margin-top: 4px; }
+      nav { gap: 12px; }
+      nav a:not(.btn-header) { display: none; }
       footer .grid { grid-template-columns: 1fr; }
-      .top-bar { display: none; }
+      .tabs button { font-size: .8rem; padding: 10px; }
     }
   </style>
 </head>
 <body>
 
-<div class="top-bar">
-  <div class="container">
-    <span>📞 641 45 00 68</span>
-    <div>
-      <a href="/publicar.html">Publicar anuncio</a>
-      <a href="#">Constructores</a>
-      <a href="#">Contacto</a>
-    </div>
-  </div>
-</div>
-
 <header>
-  <a href="/" class="logo">
-    <div class="logo-icon">NE</div>
-    <div class="logo-text">Nueva Era <small>Portal Inmobiliario</small></div>
-  </a>
-  <nav>
-    <a href="#comprar">Comprar</a>
-    <a href="#alquilar">Alquilar</a>
-    <a href="/publicar.html" class="btn-pub">+ Publicar</a>
-  </nav>
+  <div class="wrap">
+    <a href="/" class="logo">Nueva <span>Era</span></a>
+    <nav>
+      <a href="#">Comprar</a>
+      <a href="#">Alquilar</a>
+      <a href="#">Obra nueva</a>
+      <a href="/publicar.html" class="btn-header">+ Publicar</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
-  <div class="container">
-    <h1>Encuentra el hogar que <span>siempre has querido</span></h1>
-    <p>El portal inmobiliario con las mejores viviendas de toda España. Directo del propietario o a través de profesionales. Sin rodeos.</p>
-    <form class="hero-search" id="hero-search" onsubmit="return buscarHero(event)">
-      <input type="text" id="input-q" placeholder="Ciudad, barrio o dirección...">
-      <div class="divider"></div>
-      <select id="select-op">
-        <option value="venta">Comprar</option>
-        <option value="alquiler">Alquilar</option>
-      </select>
-      <div class="divider"></div>
-      <select id="select-tipo">
-        <option value="">Todos</option>
-        <option>Piso</option><option>Casa</option><option>Ático</option><option>Adosado</option><option>Local</option>
-      </select>
-      <button type="submit">🔍 Buscar</button>
-    </form>
-    <div class="hero-tags">
-      <a href="#" onclick="buscarTag('Madrid');return false">Madrid</a>
-      <a href="#" onclick="buscarTag('Barcelona');return false">Barcelona</a>
-      <a href="#" onclick="buscarTag('Valencia');return false">Valencia</a>
-      <a href="#" onclick="buscarTag('Alicante');return false">Alicante</a>
-      <a href="#" onclick="buscarTag('Málaga');return false">Málaga</a>
-      <a href="#" onclick="buscarTag('Asturias');return false">Asturias</a>
-      <a href="#" onclick="buscarTag('Sevilla');return false">Sevilla</a>
+  <div class="wrap">
+    <div class="hero-content">
+      <h1>Tu <em>próxima casa</em><br>está aquí</h1>
+      <p>Las mejores viviendas de toda España. Directo del propietario o con profesionales.</p>
+      <form class="hero-search" id="hero-search" onsubmit="return buscar(event)">
+        <input type="text" id="q" placeholder="Ciudad, barrio…">
+        <select id="op">
+          <option value="venta">Comprar</option>
+          <option value="alquiler">Alquilar</option>
+        </select>
+        <select id="tp">
+          <option value="">Todos</option>
+          <option>Piso</option><option>Casa</option><option>Ático</option><option>Adosado</option>
+        </select>
+        <button type="submit">Buscar</button>
+      </form>
     </div>
   </div>
 </section>
 
-<section class="banner-promo">
-  <div class="container">
-    <div class="label">— Obra nueva —</div>
-    <div class="logos">
-      <span>Próximamente: viviendas de obra nueva</span>
+<div class="wrap">
+  <section>
+    <div class="tabs" id="tabs">
+      <button class="active" onclick="switchTab('venta',this)">🏠 Comprar</button>
+      <button onclick="switchTab('alquiler',this)">🔑 Alquilar</button>
+      <button onclick="switchTab('obra-nueva',this)">🏗️ Obra nueva</button>
     </div>
-  </div>
-</section>
+    <div class="grid" id="grid"></div>
+  </section>
+</div>
 
-<!-- DESTACADOS (patrocinados) -->
-<section class="section" id="destacados" style="display:none">
-  <div class="container">
-    <div class="section-header">
-      <h2>⭐ Destacados</h2>
-    </div>
-    <div class="grid-pisos" id="grid-destacados"></div>
-  </div>
-</section>
-
-<!-- ÚLTIMOS PISOS -->
-<section class="section" id="ultimos">
-  <div class="container">
-    <div class="section-header">
-      <h2>Últimas viviendas</h2>
-      <a href="#" class="ver-todas" onclick="return false">Ver todas →</a>
-    </div>
-    <div class="grid-pisos" id="grid-pisos">
-      <div class="spinner"></div>
-    </div>
-  </div>
-</section>
-
-<!-- PARA PROMOTORAS -->
-<section class="section section-dark">
-  <div class="container">
-    <div class="section-header">
-      <h2>¿Eres constructor o promotor?</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem">
-      <div class="card-promo">
+<section>
+  <div class="wrap">
+    <h2 class="section-title">Para profesionales</h2>
+    <p class="section-sub">Espacios publicitarios para constructoras, promotoras y agencias</p>
+    <div class="promo-grid">
+      <div class="promo-card">
         <div class="badge">Obra nueva</div>
         <h3>Publica tus promociones</h3>
-        <p>Llega a miles de compradores. Publica tus viviendas de obra nueva con fotos, planos y precios.</p>
-        <a href="#" class="btn-outline">Más información →</a>
+        <p>Llega a compradores reales. Publica tus viviendas con fotos, planos y precios.</p>
+        <a href="#" class="btn">Más info →</a>
       </div>
-      <div class="card-promo">
+      <div class="promo-card">
         <div class="badge">Publicidad</div>
         <h3>Anúnciate con nosotros</h3>
-        <p>Espacios destacados, banners por provincia, patrocinios de sección. Llega a tu público objetivo.</p>
-        <a href="#" class="btn-outline">Ver planes →</a>
+        <p>Banners, destacados, patrocinios por provincia. Segmenta tu público objetivo.</p>
+        <a href="#" class="btn">Ver planes →</a>
       </div>
-      <div class="card-promo">
-        <div class="badge">Colaboración</div>
+      <div class="promo-card">
+        <div class="badge">Agencias</div>
         <h3>¿Eres agencia inmobiliaria?</h3>
-        <p>Planes especiales para agencias. Publica tus carteras de pisos con condiciones preferentes.</p>
-        <a href="#" class="btn-outline">Solicitar info →</a>
+        <p>Planes especiales para agencias. Publica carteras completas con condiciones preferentes.</p>
+        <a href="#" class="btn">Solicitar info →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROVINCIAS -->
-<section class="section" style="background:var(--white)">
-  <div class="container">
-    <div class="section-header">
-      <h2>Busca por provincia</h2>
-    </div>
+<section style="background:var(--white)">
+  <div class="wrap">
+    <h2 class="section-title">Provincias</h2>
+    <p class="section-sub">Encuentra vivienda en tu zona</p>
     <div class="prov-grid" id="prov-grid"></div>
   </div>
 </section>
 
-<!-- PUBLICIDAD FOOTER -->
-<section class="banner-promo" style="border-bottom:none;border-top:1px solid var(--light-gray)">
-  <div class="container">
-    <div class="label">— Espacio publicitario —</div>
-    <p style="color:#999;font-size:.85rem">¿Quieres aparecer aquí? Contacta con nosotros para publicitar tu promotora o constructora.</p>
-  </div>
-</section>
-
 <footer>
-  <div class="container">
+  <div class="wrap">
     <div class="grid">
       <div>
-        <div class="logo-text" style="color:var(--white);margin-bottom:.75rem">Nueva Era <small style="color:#666">Portal Inmobiliario</small></div>
-        <p>El portal inmobiliario donde comprar, vender y alquilar es directo. Sin comisiones ocultas. Para particulares y profesionales.</p>
+        <div class="logo" style="color:var(--white);margin-bottom:12px">Nueva <span>Era</span></div>
+        <p>Portal inmobiliario. Compra, venta y alquiler directo. Sin comisiones ocultas.</p>
       </div>
       <div>
-        <h4>Compra/Venta</h4>
-        <a href="#">Pisos</a>
-        <a href="#">Casas</a>
-        <a href="#">Áticos</a>
-        <a href="#">Adosados</a>
-        <a href="#">Locales</a>
+        <h4>Inmuebles</h4>
+        <a href="#">Pisos</a><a href="#">Casas</a><a href="#">Áticos</a><a href="#">Adosados</a>
       </div>
       <div>
-        <h4>Para profesionales</h4>
-        <a href="#">Publicar anuncios</a>
-        <a href="#">Constructores</a>
-        <a href="#">Agencias</a>
-        <a href="#">Planes publicitarios</a>
+        <h4>Profesionales</h4>
+        <a href="#">Publicar</a><a href="#">Constructores</a><a href="#">Agencias</a><a href="#">Publicidad</a>
       </div>
       <div>
         <h4>Legal</h4>
-        <a href="#">Aviso legal</a>
-        <a href="#">Privacidad</a>
-        <a href="#">Cookies</a>
-        <a href="#">Contacto</a>
+        <a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a>
       </div>
     </div>
-    <div class="bottom">
-      <p>Nueva Era — Portal Inmobiliario &copy; 2026. Todos los derechos reservados.</p>
-    </div>
+    <div class="bottom">Nueva Era &copy; 2026</div>
   </div>
 </footer>
 
 <script>
 const API = 'https://wypgqpgjlookbhuaiyxa.supabase.co/functions/v1/nueva-era';
-const PROVINCIAS = [
-  'Madrid','Barcelona','Valencia','Sevilla','Alicante','Málaga','Murcia','Asturias',
-  'Baleares','Zaragoza','Granada','Cádiz','Tenerife','Vizcaya','A Coruña','Valladolid',
-  'Cantabria','Navarra','Girona','Tarragona','Lleida','Castellón','Toledo','Ciudad Real',
-  'Albacete','Cuenca','Guadalajara','Jaén','Córdoba','Huelva','Almería','Badajoz',
-  'Cáceres','León','Palencia','Salamanca','Segovia','Soria','Zamora','Burgos','Ávila',
-  'Pontevedra','Lugo','Ourense','La Rioja','Huesca','Teruel','Melilla','Ceuta'
+let opActual = 'venta';
+const PICS = [
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80',
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80',
+  'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80',
+  'https://images.unsplash.com/photo-1600573472556-3b0c81c50e31?w=600&q=80',
+  'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80',
+  'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80',
+  'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=600&q=80',
+  'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80',
+  'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=600&q=80',
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-  cargarPisos();
-  cargarProvincias();
-});
+document.addEventListener('DOMContentLoaded', () => { cargar('venta'); renderProvs(); });
 
-async function cargarPisos() {
-  const el = document.getElementById('grid-pisos');
+async function cargar(op) {
+  const el = document.getElementById('grid'); el.innerHTML = '<div class="spinner"></div>';
   try {
-    const res = await fetch(API + '?action=listar&page=1');
-    const data = await res.json();
-    if (!data.pisos || data.pisos.length === 0) {
-      el.innerHTML = '<div class="no-results"><h3 style="font-size:1.2rem;margin-bottom:.5rem">🏠 Aún no hay anuncios</h3><p>Publica el primero y empieza a vender.</p><a href="/publicar.html" style="display:inline-block;margin-top:1rem;background:var(--gold);color:var(--black);padding:.65rem 1.5rem;border-radius:6px;text-decoration:none;font-weight:600">Publicar anuncio →</a></div>';
+    const r = await fetch(API + '?action=listar&page=1&operacion=' + op);
+    const d = await r.json();
+    if (!d.pisos || !d.pisos.length) {
+      el.innerHTML = '<div class="empty"><p style="font-size:1.1rem;margin-bottom:8px">🏠 Aún no hay anuncios</p><p style="font-size:.85rem">Publica el primero.</p><a href="/publicar.html" style="display:inline-block;margin-top:16px;background:var(--gold);color:var(--black);padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:600">Publicar →</a></div>';
       return;
     }
-    el.innerHTML = data.pisos.map(p => renderCard(p)).join('');
-  } catch(e) {
-    el.innerHTML = '<div class="no-results"><h3>Error al cargar</h3></div>';
-  }
+    el.innerHTML = d.pisos.map((p,i) => card(p,i)).join('');
+  } catch(_) { el.innerHTML = '<div class="empty">Error</div>'; }
 }
 
-function renderCard(p) {
-  const emoji = p.tipo === 'piso' ? '🏢' : p.tipo === 'casa' ? '🏠' : p.tipo === 'ático' ? '🏛️' : p.tipo === 'adosado' ? '🏡' : '🏪';
-  const precio = (p.precio || 0).toLocaleString('es-ES') + ' €';
-  const tipoLabel = (p.tipo || 'piso').charAt(0).toUpperCase() + (p.tipo || 'piso').slice(1);
-  const opLabel = p.operacion === 'alquiler' ? 'Alquiler' : 'Venta';
-
+function card(p,i) {
+  const img = PICS[i % PICS.length];
+  const pStr = (p.precio||0).toLocaleString('es-ES') + ' €';
+  const opLbl = p.operacion === 'alquiler' ? 'Alquiler' : 'Venta';
+  const tipo = p.tipo ? p.tipo.charAt(0).toUpperCase()+p.tipo.slice(1) : 'Piso';
   return `<a href="/piso.html?id=${p.id}" class="card">
-    <div class="thumb">
-      <span style="font-size:4rem;opacity:.3">${emoji}</span>
-      <span class="tipo-tag">${opLabel}</span>
-      <span class="precio-tag">${precio}</span>
+    <div class="img">
+      <img src="${img}" alt="${p.titulo||'Vivienda'}" loading="lazy">
+      <span class="tag">${opLbl}</span>
+      <span class="price">${pStr}</span>
     </div>
-    <div class="info">
-      <h3>${p.titulo || tipoLabel + ' en ' + (p.ciudad || p.provincia)}</h3>
-      <div class="ubi">📍 ${[p.ciudad, p.provincia].filter(Boolean).join(', ')}</div>
-      <div class="chips">
-        ${p.m2 ? `<span>📐 ${p.m2} m²</span>` : ''}
-        ${p.habitaciones ? `<span class="sep">·</span><span>🛏️ ${p.habitaciones} hab</span>` : ''}
-        ${p.banos ? `<span class="sep">·</span><span>🚿 ${p.banos} baño${p.banos > 1 ? 's' : ''}</span>` : ''}
+    <div class="body">
+      <h3>${p.titulo || tipo + ' en ' + (p.ciudad||p.provincia)}</h3>
+      <div class="loc">📍 ${[p.ciudad,p.provincia].filter(Boolean).join(', ')}</div>
+      <div class="specs">
+        ${p.m2 ? '<span>📐 '+p.m2+' m²</span>' : ''}
+        ${p.habitaciones ? '<span>🛏️ '+p.habitaciones+'</span>' : ''}
+        ${p.banos ? '<span>🚿 '+p.banos+'</span>' : ''}
       </div>
     </div>
   </a>`;
 }
 
-function cargarProvincias() {
-  const grid = document.getElementById('prov-grid');
-  grid.innerHTML = PROVINCIAS.map(p => `<a href="#" onclick="buscarTag('${p}');return false">${p}</a>`).join('');
+function switchTab(op, btn) {
+  opActual = op;
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  cargar(op === 'obra-nueva' ? 'venta' : op);
 }
 
-function buscarTag(prov) {
-  document.getElementById('input-q').value = prov;
-  document.getElementById('select-op').value = 'venta';
-  document.getElementById('ultimos').scrollIntoView({ behavior: 'smooth' });
-}
+function buscar(e) { e.preventDefault(); document.getElementById('grid').scrollIntoView({behavior:'smooth'}); cargar(document.getElementById('op').value); }
 
-function buscarHero(e) {
-  e.preventDefault();
-  document.getElementById('ultimos').scrollIntoView({ behavior: 'smooth' });
+function renderProvs() {
+  const ps = ['Madrid','Barcelona','Valencia','Sevilla','Alicante','Málaga','Murcia','Asturias','Baleares','Zaragoza','Granada','Cádiz','Tenerife','Vizcaya','A Coruña','Valladolid','Cantabria','Navarra','Girona','Tarragona','Castellón','Toledo','Jaén','Córdoba','León','Burgos','Almería','Badajoz','Pontevedra','La Rioja','Huesca'];
+  document.getElementById('prov-grid').innerHTML = ps.map(p => `<a href="#" onclick="return false">${p}</a>`).join('');
 }
 </script>
-<script data-goatcounter="https://certificadoya.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
