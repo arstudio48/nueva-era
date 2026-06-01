@@ -7,132 +7,128 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --gold: #c8a263; --black: #0c0c0c; --white: #ffffff; --bg: #f7f5f0; --gray: #6b6560; --border: #e6e2da; --radius: 12px; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--black); -webkit-font-smoothing: antialiased; }
-    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); height: 60px; display: flex; align-items: center; padding: 0 32px; gap: 16px; }
-    .back { color: var(--gray); text-decoration: none; font-size: .85rem; display: flex; align-items: center; gap: 6px; transition: color .15s; }
-    .back:hover { color: var(--black); }
-    .logo-sm { color: var(--gray); font-size: .82rem; } 
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
-    .detalle { margin-top: 60px; display: grid; grid-template-columns: 1fr 380px; gap: 40px; padding: 40px 0; align-items: start; }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#fff;color:#111}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 
-    .gallery { position: relative; border-radius: var(--radius); overflow: hidden; background: #e8e4de; }
-    .gallery-main { width: 100%; height: 440px; }
-    .gallery-main img { width: 100%; height: 100%; object-fit: cover; }
-    .gallery-thumbs { display: flex; gap: 6px; padding: 8px 0; }
-    .gallery-thumbs img { width: 72px; height: 54px; object-fit: cover; border-radius: 6px; cursor: pointer; opacity: .4; transition: all .2s; border: 2px solid transparent; }
-    .gallery-thumbs img.active, .gallery-thumbs img:hover { opacity: 1; border-color: var(--gold); }
-    .badge-op { position: absolute; top: 16px; left: 16px; background: var(--gold); color: var(--black); padding: 6px 16px; border-radius: 6px; font-size: .8rem; font-weight: 700; z-index: 2; }
-    .badge-count { position: absolute; bottom: 16px; right: 16px; background: rgba(0,0,0,.6); color: var(--white); padding: 4px 12px; border-radius: 6px; font-size: .78rem; backdrop-filter: blur(4px); z-index: 2; }
-    h1 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; margin: 24px 0 4px; }
-    .loc { color: var(--gray); font-size: .88rem; margin-bottom: 4px; }
-    .precio { font-size: 2rem; font-weight: 800; color: var(--gold); margin: 12px 0 24px; }
-    .specs { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 8px; margin-bottom: 28px; }
-    .spec-item { background: var(--bg); border-radius: 8px; padding: 12px 8px; text-align: center; }
-    .spec-item .v { font-size: .9rem; font-weight: 700; }
-    .spec-item .l { font-size: .7rem; color: var(--gray); margin-top: 2px; }
-    .desc-card { background: var(--bg); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; }
-    .desc-card h3 { font-size: .9rem; font-weight: 700; margin-bottom: 10px; }
-    .desc-card p { font-size: .88rem; line-height: 1.8; color: #444; }
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-bottom:1px solid #eee;height:56px;display:flex;align-items:center;padding:0 24px;gap:12px}
+    .back{color:#888;font-size:13px;display:flex;align-items:center;gap:4px}
+    .back:hover{color:#111}
 
-    .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; position: sticky; top: 80px; }
-    .sidebar-card .tel { font-size: 1.3rem; font-weight: 700; text-align: center; margin-bottom: 16px; letter-spacing: -.3px; }
-    .sidebar-card hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
-    .sidebar-card .info { font-size: .85rem; color: #444; margin-bottom: 6px; }
-    .sidebar-card .info strong { color: var(--black); }
-    .sidebar-card .btn { width: 100%; padding: 13px; border: none; border-radius: 8px; font-weight: 600; font-size: .88rem; cursor: pointer; font-family: inherit; transition: all .15s; }
-    .btn-primary { background: var(--gold); color: var(--black); }
-    .btn-primary:hover { background: #b8924e; }
-    .btn-whatsapp { background: #25D366; color: var(--white); margin-top: 8px; }
-    .btn-whatsapp:hover { background: #1da851; }
-    .ref { font-size: .72rem; color: var(--gray); text-align: center; margin-top: 20px; }
-    .load { text-align: center; padding: 100px 0; grid-column: 1/-1; color: var(--gray); }
+    .detalle{margin-top:32px;display:grid;grid-template-columns:1fr 380px;gap:32px;padding:0 0 40px;align-items:start}
 
-    @media (max-width: 860px) {
-      .detalle { grid-template-columns: 1fr; }
-      .sidebar-card { position: static; }
-      .gallery-main { height: 280px; }
-      .wrap { padding: 0 20px; }
-      header { padding: 0 20px; }
+    .gallery{position:relative;border-radius:8px;overflow:hidden;background:#eee}
+    .gallery img{width:100%;height:420px;object-fit:cover;display:block}
+    .gallery .op-badge{position:absolute;top:16px;left:16px;background:#d4af37;color:#1a1a2e;padding:4px 12px;border-radius:4px;font-size:13px;font-weight:700;z-index:2}
+    .gallery .count-badge{position:absolute;bottom:16px;right:16px;background:rgba(0,0,0,.5);color:#fff;padding:3px 10px;border-radius:4px;font-size:12px;backdrop-filter:blur(2px);z-index:2}
+
+    h1{font-size:22px;font-weight:700;margin:20px 0 4px}
+    .ubi{color:#888;font-size:14px;margin-bottom:4px}
+    .precio{font-size:28px;font-weight:800;color:#d4af37;margin:8px 0 20px}
+
+    .specs{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;margin-bottom:24px}
+    .spec{background:#f7f7f7;border-radius:6px;padding:10px 8px;text-align:center}
+    .spec .v{font-size:14px;font-weight:700}
+    .spec .l{font-size:10px;color:#888;margin-top:2px}
+
+    .desc-box{background:#f7f7f7;border-radius:8px;padding:20px;margin-bottom:16px}
+    .desc-box h3{font-size:13px;font-weight:700;margin-bottom:8px}
+    .desc-box p{font-size:13px;line-height:1.7;color:#444}
+
+    .sidebar-card{border:1px solid #eee;border-radius:8px;padding:24px;position:sticky;top:80px}
+    .sidebar-card .tel{font-size:18px;font-weight:700;text-align:center;margin-bottom:12px}
+    .sidebar-card hr{border:none;border-top:1px solid #eee;margin:16px 0}
+    .sidebar-card .info{font-size:13px;color:#444;margin-bottom:6px}
+    .sidebar-card .info strong{color:#111}
+    .sidebar-card .btn{width:100%;padding:12px;border:none;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;display:block;text-align:center}
+    .btn-mail{background:#d4af37;color:#1a1a2e;margin-bottom:6px}
+    .btn-mail:hover{background:#c4a030}
+    .btn-wa{background:#25D366;color:#fff}
+    .btn-wa:hover{background:#1da851}
+    .ref{font-size:11px;color:#888;text-align:center;margin-top:16px}
+
+    .load{text-align:center;padding:100px 0;color:#888;grid-column:1/-1}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    @media(max-width:860px){
+      .detalle{grid-template-columns:1fr}
+      .sidebar-card{position:static}
+      .gallery img{height:260px}
     }
   </style>
 </head>
 <body>
 <header>
-  <a href="/" class="back">← Volver</a>
+  <a href="javascript:history.back()" class="back">← Volver</a>
 </header>
 <div class="wrap">
-  <div class="detalle" id="detalle"><div class="load"><div style="width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .6s infinite;margin:0 auto 12px"></div>Cargando...</div></div>
+  <div class="detalle" id="detalle">
+    <div class="load"><div style="width:28px;height:28px;border:3px solid #eee;border-top-color:#d4af37;border-radius:50%;animation:spin .6s infinite;margin:0 auto 12px"></div>Cargando...</div>
+  </div>
 </div>
 <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 <script>
-const API = 'https://wypgqpgjlookbhuaiyxa.supabase.co/functions/v1/nueva-era';
-const PICS = [
-  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=85',
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=85',
-  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=85',
-  'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=85',
-  'https://images.unsplash.com/photo-1600573472556-3b0c81c50e31?w=800&q=85',
-];
-const id = new URLSearchParams(window.location.search).get('id');
-if (!id) { document.getElementById('detalle').innerHTML = '<div class="load">Enlace inválido</div>'; } else { load(); }
+const API='https://wypgqpgjlookbhuaiyxa.supabase.co/functions/v1/nueva-era';
+const id=new URLSearchParams(window.location.search).get('id');
+if(!id)document.getElementById('detalle').innerHTML='<div class="load">Enlace inválido</div>';
+else load();
 
-async function load() {
-  try {
-    const r = await fetch(API + '?action=detalle&id=' + id);
-    const d = await r.json();
-    if (!d.piso) { document.getElementById('detalle').innerHTML = '<div class="load">No encontrado</div>'; return; }
+async function load(){
+  try{
+    const r=await fetch(API+'?action=detalle&id='+id);
+    const d=await r.json();
+    if(!d.piso){document.getElementById('detalle').innerHTML='<div class="load">Vivienda no encontrada</div>';return;}
     render(d.piso);
-  } catch(_) { document.getElementById('detalle').innerHTML = '<div class="load">Error</div>'; }
+  }catch(e){document.getElementById('detalle').innerHTML='<div class="load">Error al cargar</div>';}
 }
 
-function render(p) {
-  document.title = (p.titulo || 'Vivienda') + ' — Nueva Era';
-  const opLbl = p.operacion === 'alquiler' ? 'Alquiler' : 'Venta';
-  let extras = [];
-  if (p.ascensor) extras.push('Ascensor'); if (p.garaje) extras.push('Garaje'); if (p.terraza) extras.push('Terraza'); if (p.piscina) extras.push('Piscina');
-  const extrasHtml = extras.length ? '<div class="spec-item"><div class="v">'+extras.join(' · ')+'</div><div class="l">Extras</div></div>' : '';
-  const tel = (p.telefono_contacto||'').replace(/\D/g,'');
+function render(p){
+  document.title=(p.titulo||'Vivienda')+' — Nueva Era';
+  const opLbl=p.operacion==='alquiler'?'Alquiler':'Venta';
+  const tel=p.telefono_contacto?p.telefono_contacto.replace(/[^0-9+]/g,''):'';
+  const extras=[];
+  if(p.ascensor)extras.push('Ascensor');
+  if(p.garaje)extras.push('Garaje');
+  if(p.terraza)extras.push('Terraza');
+  if(p.piscina)extras.push('Piscina');
 
-  document.getElementById('detalle').innerHTML = `
+  document.getElementById('detalle').innerHTML=`
     <div>
       <div class="gallery">
-        <div class="gallery-main"><img id="main-img" src="${PICS[0]}" alt=""></div>
-        <div class="gallery-thumbs">${PICS.map((u,i) => `<img src="${u}" class="${i===0?'active':''}" onclick="setImg(${i})">`).join('')}</div>
-        <div class="badge-op">${opLbl}</div>
-        <div class="badge-count">1/${PICS.length}</div>
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=85" alt="">
+        <div class="op-badge">${opLbl}</div>
+        <div class="count-badge">📷 1/4</div>
       </div>
-      <h1>${p.titulo || 'Vivienda'}</h1>
-      <div class="loc">📍 ${[p.ciudad, p.provincia].filter(Boolean).join(', ')}</div>
+      <h1>${p.titulo||'Vivienda'}</h1>
+      <div class="ubi">📍 ${[p.ciudad,p.provincia].filter(Boolean).join(', ')}</div>
       <div class="precio">${(p.precio||0).toLocaleString('es-ES')} €</div>
       <div class="specs">
-        ${p.m2?'<div class="spec-item"><div class="v">'+p.m2+' m²</div><div class="l">Superficie</div></div>':''}
-        ${p.habitaciones?'<div class="spec-item"><div class="v">'+p.habitaciones+'</div><div class="l">Habitaciones</div></div>':''}
-        ${p.banos?'<div class="spec-item"><div class="v">'+p.banos+'</div><div class="l">Baños</div></div>':''}
-        ${p.planta?'<div class="spec-item"><div class="v">'+p.planta+'</div><div class="l">Planta</div></div>':''}
-        ${p.certificado_energetico?'<div class="spec-item"><div class="v">'+p.certificado_energetico+'</div><div class="l">Certificado</div></div>':''}
-        ${extrasHtml}
+        ${p.m2?'<div class="spec"><div class="v">'+p.m2+'</div><div class="l">m²</div></div>':''}
+        ${p.habitaciones?'<div class="spec"><div class="v">'+p.habitaciones+'</div><div class="l">Hab.</div></div>':''}
+        ${p.banos?'<div class="spec"><div class="v">'+p.banos+'</div><div class="l">Baños</div></div>':''}
+        ${p.planta?'<div class="spec"><div class="v">'+p.planta+'</div><div class="l">Planta</div></div>':''}
+        ${p.certificado_energetico?'<div class="spec"><div class="v">'+p.certificado_energetico+'</div><div class="l">Certificado</div></div>':''}
+        ${extras.length?'<div class="spec"><div class="v">'+extras.join(' · ')+'</div><div class="l">Extras</div></div>':''}
       </div>
-      ${p.descripcion?'<div class="desc-card"><h3>Descripción</h3><p>'+p.descripcion.replace(/\n/g,'<br>')+'</p></div>':''}
+      ${p.descripcion?'<div class="desc-box"><h3>Descripción</h3><p>'+p.descripcion.replace(/\n/g,'<br>')+'</p></div>':''}
     </div>
     <div>
       <div class="sidebar-card">
-        <div class="tel">📞 ${p.telefono_contacto || '—'}</div>
+        <div class="tel">📞 ${p.telefono_contacto||'—'}</div>
         <hr>
-        <div class="info"><strong>Contacto:</strong> ${p.nombre_contacto || '—'}</div>
-        <div class="info"><strong>Email:</strong> <a href="mailto:${p.email_contacto}" style="color:var(--gold)">${p.email_contacto}</a></div>
+        <div class="info"><strong>Contacto:</strong> ${p.nombre_contacto||'—'}</div>
+        <div class="info"><strong>Email:</strong> <a href="mailto:${p.email_contacto}" style="color:#d4af37">${p.email_contacto}</a></div>
         <hr>
-        <button class="btn btn-primary" onclick="window.location.href='mailto:${p.email_contacto}?subject='+encodeURIComponent('Interesado en: ${p.titulo||'Vivienda'}')">📧 Enviar mensaje</button>
-        ${tel ? `<button class="btn btn-whatsapp" onclick="window.open('https://wa.me/${tel}?text='+encodeURIComponent('Hola, vi el anuncio en Nueva Era. ¿Sigue disponible?'))">💬 WhatsApp</button>` : ''}
+        <a href="mailto:${p.email_contacto}?subject=${encodeURIComponent('Interesado en: '+(p.titulo||'Vivienda'))}" class="btn btn-mail">✉️ Enviar mensaje</a>
+        ${tel?`<a href="https://wa.me/${tel}?text=${encodeURIComponent('Hola, vi el anuncio en Nueva Era. ¿Sigue disponible?')}" target="_blank" class="btn btn-wa">💬 WhatsApp</a>`:''}
         <div class="ref">Ref: ${p.id.slice(0,8).toUpperCase()}</div>
       </div>
     </div>
   `;
 }
-function setImg(i) { document.getElementById('main-img').src = PICS[i]; document.querySelectorAll('.gallery-thumbs img').forEach((e,j) => e.classList.toggle('active',j===i)); }
 </script>
 </body>
 </html>

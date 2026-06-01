@@ -13,15 +13,13 @@
     body{font-family:'Inter',-apple-system,sans-serif;background:#f7f7f7;color:#111;-webkit-font-smoothing:antialiased}
     a{text-decoration:none;color:inherit}img{display:block}
     .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
-    .u-hide{display:none!important}
 
-    /* HEADER */
     .header{background:#fff;border-bottom:1px solid #e5e5e5;position:sticky;top:0;z-index:100}
     .header__inner{height:64px;display:flex;align-items:center;gap:32px}
     .logo{font-weight:800;font-size:17px;color:#1a1a2e;display:flex;align-items:center;gap:8px;flex-shrink:0}
     .logo span{color:#d4af37}
     .nav{display:flex;gap:20px}
-    .nav a{font-size:13px;color:#555;font-weight:500;padding:4px 0;border-bottom:2px solid transparent;transition:all .15s}
+    .nav a{font-size:13px;color:#555;font-weight:500;padding:4px 0;border-bottom:2px solid transparent;transition:all .15s;cursor:pointer}
     .nav a:hover{color:#111;border-bottom-color:#d4af37}
     .header__search{display:flex;flex:1;max-width:360px;background:#f5f5f5;border-radius:8px;overflow:hidden}
     .header__search input{flex:1;border:none;background:transparent;padding:8px 14px;font-size:13px;outline:none;font-family:inherit}
@@ -32,78 +30,61 @@
     .btn--outline{border:1px solid #ddd;padding:7px 16px;border-radius:6px;font-size:13px;font-weight:500;color:#555}
     .btn--outline:hover{border-color:#d4af37;color:#d4af37}
 
-    /* HERO COMPACT */
     .hero{background:linear-gradient(135deg,#1a1a2e,#252540);padding:28px 0}
-    .hero__inner{display:flex;gap:32px;align-items:center}
     .hero h1{font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
     .hero h1 span{color:#d4af37}
     .hero p{color:#999;font-size:13px;margin-bottom:16px}
     .searchbox{display:flex;background:#fff;border-radius:8px;overflow:hidden;max-width:620px}
     .searchbox input,.searchbox select{border:none;padding:10px 14px;font-size:13px;font-family:inherit;outline:none;background:transparent}
     .searchbox input{flex:1;min-width:0}
-    .searchbox select{border-left:1px solid #eee;cursor:pointer;color:#555}
-    .searchbox button{background:#d4af37;border:none;padding:10px 28px;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;color:#1a1a2e}
+    .searchbox select{border-left:1px solid #eee;cursor:pointer;color:#555;background:#fff}
+    .searchbox button{background:#d4af37;border:none;padding:10px 28px;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;color:#1a1a2e;white-space:nowrap}
 
-    /* TOOLBAR */
-    .toolbar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid #eee;margin-bottom:16px}
+    .toolbar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid #eee;margin-bottom:16px;gap:12px;flex-wrap:wrap}
     .toolbar__count{font-size:13px;color:#888}
     .toolbar__count strong{color:#111}
-    .sort select{border:1px solid #e5e5e5;border-radius:6px;padding:6px 10px;font-size:12px;font-family:inherit;outline:none;color:#555}
+    .sort select{border:1px solid #e5e5e5;border-radius:6px;padding:6px 10px;font-size:12px;font-family:inherit;outline:none;color:#555;background:#fff;cursor:pointer}
+    .sort select:focus{border-color:#d4af37}
 
-    /* TABS */
-    .tabs{display:flex;gap:0;margin-bottom:0}
+    .tabs{display:flex;gap:0;margin-bottom:0;border-bottom:1px solid #eee}
     .tab{padding:12px 20px;background:transparent;border:none;border-bottom:2px solid transparent;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;color:#888;transition:all .15s}
     .tab:hover{color:#111}
     .tab.active{color:#1a1a2e;font-weight:600;border-bottom-color:#d4af37}
 
-    /* GRID RESULTS */
     .results{padding:0 0 32px}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 
-    /* CARD -> ad-preview */
-    .card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e8e8e8;transition:box-shadow .2s}
+    .card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e8e8e8;transition:box-shadow .2s;display:block}
     .card:hover{box-shadow:0 4px 20px rgba(0,0,0,.06)}
-    
-    .card__top{position:relative;overflow:hidden;background:#eee}
-    .card__img{width:100%;height:180px;object-fit:cover;display:block}
+    .card__top{position:relative;overflow:hidden;background:#eee;height:180px}
+    .card__img{width:100%;height:100%;object-fit:cover;display:block}
     .card__price{position:absolute;bottom:8px;left:10px;background:rgba(0,0,0,.6);color:#fff;padding:3px 10px;border-radius:4px;font-size:15px;font-weight:700;backdrop-filter:blur(2px)}
     .card__tag{position:absolute;top:10px;left:10px;background:#d4af37;color:#1a1a2e;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600}
-    .card__fav{position:absolute;top:10px;right:10px;width:28px;height:28px;background:rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;border:none;transition:transform .15s}
-    .card__fav:hover{transform:scale(1.1)}
-    .card__product{position:absolute;top:36px;left:10px}
-    .card__product span{display:inline-block;background:#ff6b6b;color:#fff;padding:1px 6px;border-radius:2px;font-size:10px;font-weight:600}
-
     .card__body{padding:10px 12px 12px}
     .card__price-inline{font-size:16px;font-weight:700;color:#111;margin-bottom:2px}
-    .card__price-old{font-size:12px;color:#999;text-decoration:line-through;margin-left:6px;font-weight:400}
-    .card__title{font-size:13px;font-weight:600;color:#111;margin-bottom:1px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
-    .card__title:hover{color:#d4af37}
+    .card__title{font-size:13px;font-weight:600;color:#111;margin-bottom:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .card__subtitle{font-size:12px;color:#888;margin-bottom:4px}
     .card__chars{display:flex;gap:10px;font-size:12px;color:#666}
-    .card__chars span{display:flex;align-items:center;gap:3px}
-    .card__desc{font-size:12px;color:#888;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.4}
-    .card__contact{display:flex;gap:6px;margin-top:8px;padding-top:8px;border-top:1px solid #f0f0f0}
-    .card__contact a{font-size:11px;color:#d4af37;font-weight:500}
-    .card__contact a:hover{text-decoration:underline}
+    .card__desc{font-size:12px;color:#888;margin-top:6px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .card__action{display:block;margin-top:8px;padding-top:8px;border-top:1px solid #f0f0f0;font-size:12px;color:#d4af37;font-weight:500}
+    .card__action:hover{text-decoration:underline}
 
-    /* EMPTY */
     .empty{text-align:center;padding:60px 0;color:#888;grid-column:1/-1}
+    .spinner{width:28px;height:28px;border:3px solid #e5e5e5;border-top-color:#d4af37;border-radius:50%;animation:spin .6s infinite;margin:32px auto;grid-column:1/-1}
+    @keyframes spin{to{transform:rotate(360deg)}}
 
-    /* PROMO */
     .promos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
     .promo-card{background:linear-gradient(135deg,#1a1a2e,#252540);border-radius:8px;padding:24px;color:#fff}
     .promo-card .badge{display:inline-block;background:#d4af37;color:#1a1a2e;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700;margin-bottom:10px}
     .promo-card h3{font-size:14px;font-weight:600;margin-bottom:6px}
     .promo-card p{color:#999;font-size:12px;line-height:1.5;margin-bottom:12px}
-    .promo-card .btn{display:inline-block;border:1px solid #d4af37;color:#d4af37;padding:6px 14px;border-radius:4px;font-size:12px;font-weight:500}
+    .promo-card .btn{display:inline-block;border:1px solid #d4af37;color:#d4af37;padding:6px 14px;border-radius:4px;font-size:12px;font-weight:500;cursor:pointer}
     .promo-card .btn:hover{background:#d4af37;color:#1a1a2e}
 
-    /* PROVS */
     .provs{display:flex;flex-wrap:wrap;gap:6px}
-    .provs a{padding:5px 14px;background:#fff;border:1px solid #e5e5e5;border-radius:4px;font-size:12px;color:#555;transition:all .15s}
+    .provs a{padding:5px 14px;background:#fff;border:1px solid #e5e5e5;border-radius:4px;font-size:12px;color:#555;cursor:pointer}
     .provs a:hover{border-color:#d4af37;color:#d4af37}
 
-    /* SECTIONS */
     section{padding:28px 0}
     .section-title{font-size:17px;font-weight:700;margin-bottom:2px}
     .section-sub{color:#888;font-size:13px;margin-bottom:14px}
@@ -111,24 +92,20 @@
     .footer{background:#1a1a2e;color:#888;padding:32px 0 20px;font-size:12px;margin-top:32px}
     .footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
     .footer h4{color:#fff;font-size:13px;margin-bottom:10px}
-    .footer a{color:#888;display:block;margin-bottom:4px}
+    .footer a{color:#888;display:block;margin-bottom:4px;cursor:pointer}
     .footer a:hover{color:#d4af37}
     .footer__bottom{border-top:1px solid #333;padding-top:16px;margin-top:24px;text-align:center}
-
-    .spinner{width:28px;height:28px;border:3px solid #e5e5e5;border-top-color:#d4af37;border-radius:50%;animation:spin .6s infinite;margin:32px auto}
-    @keyframes spin{to{transform:rotate(360deg)}}
 
     @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:768px){
       .grid{grid-template-columns:1fr}
       .searchbox{flex-direction:column}
       .searchbox select{border-left:none;border-top:1px solid #eee}
-      .nav{display:none}
-      .header__search{display:none}
       .header__inner{height:auto;padding:10px 0;flex-wrap:wrap;gap:12px}
       .promos{grid-template-columns:1fr}
       .footer__grid{grid-template-columns:1fr}
-      .hero__inner{flex-direction:column;align-items:stretch}
+      .nav{display:none}
+      .header__search{display:none}
     }
   </style>
 </head>
@@ -138,13 +115,13 @@
   <div class="wrap header__inner">
     <a href="/" class="logo">Nueva <span>Era</span></a>
     <nav class="nav">
-      <a href="#">Comprar</a>
-      <a href="#">Alquilar</a>
-      <a href="#">Obra nueva</a>
+      <a onclick="switchOp('venta')">Comprar</a>
+      <a onclick="switchOp('alquiler')">Alquilar</a>
+      <a onclick="switchOp('obranueva')">Obra nueva</a>
     </nav>
     <div class="header__search">
-      <input type="text" id="hq" placeholder="Buscar ciudad...">
-      <button onclick="b()">🔍</button>
+      <input type="text" id="hq" placeholder="Buscar ciudad..." onkeydown="if(event.key==='Enter')hSearch()">
+      <button onclick="hSearch()">🔍</button>
     </div>
     <div class="header__actions">
       <a href="/publicar.html" class="btn--outline">Publicar</a>
@@ -153,29 +130,34 @@
 </div>
 
 <div class="hero">
-  <div class="wrap hero__inner">
-    <div>
-      <h1>Tu <span>próximo hogar</span> empieza aquí</h1>
-      <p>Miles de viviendas en toda España. Compra, venta y alquiler.</p>
-      <form class="searchbox" onsubmit="return s(event)">
-        <input type="text" id="q" placeholder="Ciudad, barrio...">
-        <select id="op"><option value="venta">Comprar</option><option value="alquiler">Alquilar</option></select>
-        <select id="tp"><option value="">Todos</option><option>Piso</option><option>Casa</option><option>Ático</option></select>
-        <button type="submit">Buscar</button>
-      </form>
-    </div>
+  <div class="wrap">
+    <h1>Tu <span>próximo hogar</span> empieza aquí</h1>
+    <p>Miles de viviendas en toda España. Compra, venta y alquiler.</p>
+    <form class="searchbox" onsubmit="return heroSearch(event)">
+      <input type="text" id="sq" placeholder="Ciudad, barrio...">
+      <select id="sop"><option value="venta">Comprar</option><option value="alquiler">Alquilar</option></select>
+      <select id="stp"><option value="">Todos</option><option>Piso</option><option>Casa</option><option>Ático</option></select>
+      <button type="submit">Buscar</button>
+    </form>
   </div>
 </div>
 
-<main class="wrap results">
+<main class="wrap results" id="results">
   <div class="tabs">
-    <button class="tab active" onclick="t('venta',this)">Compra</button>
-    <button class="tab" onclick="t('alquiler',this)">Alquiler</button>
-    <button class="tab" onclick="t('obranueva',this)">Obra nueva</button>
+    <button class="tab active" onclick="switchOp('venta',this)">Compra</button>
+    <button class="tab" onclick="switchOp('alquiler',this)">Alquiler</button>
+    <button class="tab" onclick="switchOp('obranueva',this)">Obra nueva</button>
   </div>
   <div class="toolbar">
     <span class="toolbar__count" id="count">Cargando...</span>
-    <div class="sort"><select><option>Más relevantes</option><option>Más recientes</option><option>Precio: menor</option><option>Precio: mayor</option></select></div>
+    <div class="sort">
+      <select id="sortOrder" onchange="reload()">
+        <option value="">Más relevantes</option>
+        <option value="recent">Más recientes</option>
+        <option value="low">Precio: menor</option>
+        <option value="high">Precio: mayor</option>
+      </select>
+    </div>
   </div>
   <div class="grid" id="grid"></div>
 </main>
@@ -185,9 +167,9 @@
     <h2 class="section-title">Para profesionales</h2>
     <p class="section-sub">Planes para constructoras, promotoras y agencias inmobiliarias</p>
     <div class="promos">
-      <div class="promo-card"><div class="badge">Obra nueva</div><h3>Publica tus promociones</h3><p>Llega a miles de compradores. Publica tus viviendas con fotos y precios.</p><a href="#" class="btn">Más información →</a></div>
-      <div class="promo-card"><div class="badge">Publicidad</div><h3>Anúnciate en Nueva Era</h3><p>Banners, destacados, patrocinios por provincia. Segmenta tu audiencia.</p><a href="#" class="btn">Ver planes →</a></div>
-      <div class="promo-card"><div class="badge">Agencias</div><h3>¿Eres agencia inmobiliaria?</h3><p>Planes especiales para agencias. Publica carteras completas de inmuebles.</p><a href="#" class="btn">Solicitar info →</a></div>
+      <div class="promo-card"><div class="badge">Obra nueva</div><h3>Publica tus promociones</h3><p>Llega a miles de compradores. Publica tus viviendas con fotos y precios.</p><a href="/publicar.html" class="btn">Publicar ahora →</a></div>
+      <div class="promo-card"><div class="badge">Publicidad</div><h3>Anúnciate en Nueva Era</h3><p>Banners, destacados, patrocinios por provincia. Segmenta tu audiencia.</p><a href="mailto:info@nuevaera.es" class="btn">Solicitar información →</a></div>
+      <div class="promo-card"><div class="badge">Agencias</div><h3>¿Eres agencia inmobiliaria?</h3><p>Planes especiales. Publica carteras completas con condiciones preferentes.</p><a href="mailto:info@nuevaera.es" class="btn">Contactar →</a></div>
     </div>
   </div>
 </section>
@@ -195,7 +177,7 @@
 <section style="background:#fafafa">
   <div class="wrap">
     <h2 class="section-title">Provincias</h2>
-    <p class="section-sub">Todas las zonas con viviendas disponibles</p>
+    <p class="section-sub">Selecciona una provincia para ver viviendas</p>
     <div class="provs" id="provs"></div>
   </div>
 </section>
@@ -203,10 +185,10 @@
 <div class="footer">
   <div class="wrap">
     <div class="footer__grid">
-      <div><div class="logo" style="color:#fff;margin-bottom:10px">Nueva <span>Era</span></div><p style="font-size:12px;line-height:1.6">Portal inmobiliario. Compra, venta y alquiler de viviendas en toda España. Directo entre particulares y profesionales.</p></div>
-      <div><h4>Inmuebles</h4><a href="#">Pisos</a><a href="#">Casas</a><a href="#">Áticos</a><a href="#">Adosados</a><a href="#">Locales</a></div>
-      <div><h4>Profesionales</h4><a href="#">Publicar anuncios</a><a href="#">Constructores</a><a href="#">Agencias</a><a href="#">Planes publicitarios</a></div>
-      <div><h4>Nueva Era</h4><a href="#">Contacto</a><a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></div>
+      <div><div class="logo" style="color:#fff;margin-bottom:10px">Nueva <span>Era</span></div><p style="font-size:12px;line-height:1.6">Portal inmobiliario. Compra, venta y alquiler de viviendas en toda España.</p></div>
+      <div><h4>Inmuebles</h4><a onclick="switchOp('venta')">Pisos en venta</a><a onclick="switchOp('alquiler')">Pisos en alquiler</a><a onclick="switchOp('venta')">Casas</a><a onclick="switchOp('venta')">Áticos</a></div>
+      <div><h4>Profesionales</h4><a href="/publicar.html">Publicar anuncio</a><a href="#">Constructores</a><a href="#">Agencias</a><a href="#">Planes publicitarios</a></div>
+      <div><h4>Nueva Era</h4><a>Contacto</a><a>641 45 00 68</a><a>Aviso legal</a><a>Privacidad</a></div>
     </div>
     <div class="footer__bottom">Nueva Era &copy; 2026</div>
   </div>
@@ -216,23 +198,41 @@
 const API='https://wypgqpgjlookbhuaiyxa.supabase.co/functions/v1/nueva-era';
 const IMGS=['https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&q=80','https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=80','https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=80','https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=500&q=80','https://images.unsplash.com/photo-1600573472556-3b0c81c50e31?w=500&q=80','https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=500&q=80','https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=500&q=80','https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=500&q=80'];
 const PROVS=['Madrid','Barcelona','Valencia','Sevilla','Alicante','Málaga','Murcia','Asturias','Baleares','Zaragoza','Granada','Cádiz','Tenerife','Vizcaya','A Coruña','Valladolid','Cantabria','Navarra','Girona','Castellón','Toledo','Jaén','Córdoba','León','Burgos','Almería','Badajoz','La Rioja','Huesca'];
-let op='venta';
-document.addEventListener('DOMContentLoaded',()=>{c(op);document.getElementById('provs').innerHTML=PROVS.map(p=>`<a href="#" onclick="return false">${p}</a>`).join('')});
 
-async function c(o){
+let currentOp='venta', currentProv='';
+
+document.addEventListener('DOMContentLoaded',()=>{
+  load();
+  document.getElementById('provs').innerHTML=PROVS.map(p=>`<a onclick="filterProv('${p}')">${p}</a>`).join('');
+});
+
+async function load(){
   const g=document.getElementById('grid');g.innerHTML='<div class="spinner"></div>';
   try{
-    const r=await fetch(API+'?action=listar&page=1&operacion='+o);
+    const sort=document.getElementById('sortOrder').value;
+    let url=API+'?action=listar&page=1&operacion='+currentOp;
+    if(currentProv)url+='&provincia='+encodeURIComponent(currentProv);
+    const r=await fetch(url);
     const d=await r.json();
-    document.getElementById('count').innerHTML='<strong>'+(d.total||0)+'</strong> anuncios';
-    if(!d.pisos||!d.pisos.length){g.innerHTML='<div class="empty">Aún no hay anuncios. <a href="/publicar.html" style="color:#d4af37;font-weight:600">Publica el primero</a></div>';return;}
-    g.innerHTML=d.pisos.map((p,i)=>`
+    const total=d.total||0;
+    
+    // Sort locally
+    let pisos=d.pisos||[];
+    if(sort==='low')pisos.sort((a,b)=>a.precio-b.precio);
+    else if(sort==='high')pisos.sort((a,b)=>b.precio-a.precio);
+    else if(sort==='recent')pisos.sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
+    
+    document.getElementById('count').innerHTML='<strong>'+total+'</strong> anuncio'+(total!==1?'s':'')+(currentProv?' en '+currentProv:'');
+    if(!pisos.length){
+      g.innerHTML='<div class="empty">'+(currentProv?'No hay anuncios en '+currentProv+' aún':'Aún no hay anuncios')+'. <a href="/publicar.html" style="color:#d4af37;font-weight:600">Publica el primero</a></div>';
+      return;
+    }
+    g.innerHTML=pisos.map((p,i)=>`
       <a href="/piso.html?id=${p.id}" class="card">
         <div class="card__top">
           <img class="card__img" src="${IMGS[i%IMGS.length]}" alt="" loading="lazy">
           <span class="card__tag">${p.operacion==='alquiler'?'Alquiler':'Venta'}</span>
           <span class="card__price">${(p.precio||0).toLocaleString('es-ES')} €</span>
-          <span class="card__fav">♡</span>
         </div>
         <div class="card__body">
           <div class="card__price-inline">${(p.precio||0).toLocaleString('es-ES')} €</div>
@@ -244,16 +244,50 @@ async function c(o){
             ${p.banos?'<span>🚿 '+p.banos+' baño'+(p.banos>1?'s':'')+'</span>':''}
           </div>
           ${p.descripcion?'<div class="card__desc">'+p.descripcion.slice(0,120)+'</div>':''}
-          <div class="card__contact"><span style="font-size:11px;color:#888">Contactar: </span><a href="mailto:'+p.email_contacto+'">📧</a>${p.telefono_contacto?'<a href="tel:'+p.telefono_contacto+'">📞</a>':''}</div>
+          <span class="card__action">Ver detalle →</span>
         </div>
       </a>
     `).join('');
   }catch(_){g.innerHTML='<div class="empty">Error al cargar</div>';}
 }
+function reload(){load()}
 
-function t(o,b){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');op=o;c(o)}
-function s(e){e.preventDefault();document.querySelector('.results').scrollIntoView({behavior:'smooth'});c(document.getElementById('op').value)}
-function b(){const v=document.getElementById('hq').value;if(v){document.getElementById('q').value=v;c(op);document.querySelector('.results').scrollIntoView({behavior:'smooth'})}}
+function switchOp(op,btn){
+  currentOp=op;currentProv='';
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  else document.querySelector('.tab').classList.add('active');
+  load();
+  document.getElementById('sq').value='';
+  document.getElementById('hq').value='';
+  if(document.getElementById('results'))document.getElementById('results').scrollIntoView({behavior:'smooth'});
+}
+
+function filterProv(p){
+  currentProv=p;load();
+  document.getElementById('results').scrollIntoView({behavior:'smooth'});
+}
+
+function heroSearch(e){
+  e.preventDefault();
+  const q=document.getElementById('sq').value.trim();
+  if(q)document.getElementById('hq').value=q;
+  currentProv='';
+  document.getElementById('sop')&&(currentOp=document.getElementById('sop').value);
+  load();
+  document.getElementById('results').scrollIntoView({behavior:'smooth'});
+  return false;
+}
+
+function hSearch(){
+  const q=document.getElementById('hq').value.trim();
+  if(q){
+    document.getElementById('sq').value=q;
+    currentProv='';
+    load();
+    document.getElementById('results').scrollIntoView({behavior:'smooth'});
+  }
+}
 </script>
 </body>
 </html>
