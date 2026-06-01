@@ -4,146 +4,238 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nueva Era — Portal Inmobiliario</title>
-  <meta name="description" content="Portal inmobiliario con las mejores viviendas de toda España. Compra, venta y alquiler. Fotos reales, buscador avanzado.">
+  <meta name="description" content="Portal inmobiliario con las mejores viviendas de España. Compra, venta y alquiler con fotos reales.">
+  <meta property="og:title" content="Nueva Era — Portal Inmobiliario">
+  <meta property="og:description" content="Encuentra tu hogar. Viviendas con fotos reales en toda España.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --gold: #c8a263; --gold-light: #e8d5a3; --black: #0f0f0f; --white: #ffffff; --bg: #f5f3ef; --gray: #6b6560; --border: #e0dbd4; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--black); -webkit-font-smoothing: antialiased; }
-    .wrap { max-width: 1260px; margin: 0 auto; padding: 0 24px; }
+    :root {
+      --gold: #c8a263;
+      --gold-dark: #a88840;
+      --gold-light: #f0e6d0;
+      --black: #0c0c0c;
+      --near-black: #151515;
+      --white: #ffffff;
+      --bg: #f7f5f0;
+      --gray: #6b6560;
+      --gray-light: #c4bfb8;
+      --border: #e6e2da;
+      --shadow: 0 4px 24px rgba(0,0,0,.04);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,.08);
+      --radius: 12px;
+    }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--black); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
-    /* ======== HEADER ======== */
+    /* ===== HEADER ===== */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(255,255,255,.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border); height: 64px;
+      background: rgba(255,255,255,.85); backdrop-filter: blur(20px) saturate(1.2);
+      -webkit-backdrop-filter: blur(20px) saturate(1.2);
+      border-bottom: 1px solid rgba(230,226,218,.5); height: 68px;
+      transition: background .3s;
     }
     header .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-weight: 700; font-size: 1.15rem; text-decoration: none; color: var(--black); display: flex; align-items: center; gap: 8px; }
+    .logo {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--black);
+    }
+    .logo-mark {
+      width: 36px; height: 36px; background: var(--black); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: .75rem;
+    }
     .logo span { color: var(--gold); }
-    nav { display: flex; align-items: center; gap: 24px; }
-    nav a { text-decoration: none; color: #555; font-size: .85rem; font-weight: 500; transition: color .15s; }
+    nav { display: flex; align-items: center; gap: 32px; }
+    nav a { text-decoration: none; color: #555; font-size: .85rem; font-weight: 500; letter-spacing: .2px; position: relative; transition: color .2s; }
+    nav a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--gold); transition: width .25s; }
     nav a:hover { color: var(--black); }
-    .btn-header { background: var(--black); color: var(--white) !important; padding: 8px 18px; border-radius: 6px; font-weight: 600; }
-    .btn-header:hover { background: #222 !important; color: var(--white) !important; }
+    nav a:hover::after { width: 100%; }
+    .btn-header {
+      background: var(--black); color: var(--white) !important; padding: 10px 22px;
+      border-radius: 8px; font-weight: 600; font-size: .82rem; transition: all .2s !important;
+    }
+    .btn-header:hover { background: #222 !important; }
+    .btn-header::after { display: none !important; }
 
-    /* ======== HERO ======== */
+    /* ===== HERO ===== */
     .hero {
-      margin-top: 64px; height: 85vh; min-height: 520px;
-      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      margin-top: 68px; height: 92vh; min-height: 600px; max-height: 900px;
       position: relative; overflow: hidden; display: flex; align-items: center;
     }
-    .hero::after {
-      content: ''; position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80') center/cover;
-      opacity: .35; z-index: 0;
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, rgba(12,12,12,.85) 0%, rgba(12,12,12,.4) 50%, rgba(200,162,99,.15) 100%),
+        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=85') center/cover;
     }
-    .hero .wrap { position: relative; z-index: 1; width: 100%; }
-    .hero-content { max-width: 640px; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; color: var(--white); letter-spacing: -.5px; }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-content { max-width: 620px; }
+    .hero-tag {
+      display: inline-block; background: rgba(200,162,99,.15); border: 1px solid rgba(200,162,99,.25);
+      padding: 6px 16px; border-radius: 50px; color: var(--gold-light); font-size: .78rem;
+      font-weight: 500; margin-bottom: 24px; letter-spacing: .3px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+      font-weight: 800; line-height: 1.05; color: var(--white); letter-spacing: -1px;
+    }
     .hero h1 em { font-style: normal; color: var(--gold); }
-    .hero p { color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.6; margin: 16px 0 32px; max-width: 480px; }
-
+    .hero p {
+      color: rgba(255,255,255,.6); font-size: 1.05rem; line-height: 1.7;
+      margin: 20px 0 36px; max-width: 480px;
+    }
     .hero-search {
-      background: var(--white); border-radius: 10px; padding: 6px;
-      display: flex; align-items: center; max-width: 700px;
-      box-shadow: 0 16px 48px rgba(0,0,0,.3);
+      background: var(--white); border-radius: 14px; padding: 6px;
+      display: flex; align-items: center; max-width: 720px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
     }
     .hero-search input, .hero-search select {
-      border: none; padding: 12px 14px; font-size: .88rem; font-family: inherit;
+      border: none; padding: 14px 16px; font-size: .9rem; font-family: inherit;
       outline: none; background: transparent; color: var(--black); flex: 1; min-width: 0;
     }
+    .hero-search input::placeholder { color: var(--gray-light); }
     .hero-search select { cursor: pointer; color: #555; border-left: 1px solid var(--border); min-width: 120px; }
-    .hero-search button {
-      background: var(--gold); border: none; border-radius: 8px; padding: 12px 28px;
-      font-weight: 600; font-size: .88rem; cursor: pointer; font-family: inherit;
-      color: var(--black); white-space: nowrap; transition: background .15s;
+    .hero-search .btn-search {
+      background: var(--gold); border: none; border-radius: 10px; padding: 14px 32px;
+      font-weight: 700; font-size: .9rem; cursor: pointer; font-family: inherit;
+      color: var(--black); white-space: nowrap; transition: all .2s;
     }
-    .hero-search button:hover { background: #b8924e; }
+    .hero-search .btn-search:hover { background: var(--gold-dark); transform: scale(1.02); }
+    .hero-tags { margin-top: 32px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero-tags a {
+      color: rgba(255,255,255,.5); text-decoration: none; font-size: .82rem;
+      padding: 6px 18px; border: 1px solid rgba(255,255,255,.12); border-radius: 50px;
+      transition: all .2s; backdrop-filter: blur(4px);
+    }
+    .hero-tags a:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-scroll {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,.3); font-size: 1.5rem; animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
-    /* ======== TABS ======== */
-    .tabs { display: flex; gap: 0; margin-bottom: 24px; background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
-    .tabs button { flex: 1; padding: 14px; border: none; background: transparent; font-size: .88rem; font-weight: 500; cursor: pointer; font-family: inherit; color: #888; transition: all .15s; border-bottom: 2px solid transparent; }
-    .tabs button:hover { color: var(--black); }
-    .tabs button.active { color: var(--black); font-weight: 600; border-bottom-color: var(--gold); background: #faf9f7; }
+    /* ===== TABS & SECTION TITLES ===== */
+    section { padding: 64px 0; }
+    .section-label {
+      display: inline-block; font-size: .72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--gold); margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;
+      margin-bottom: 8px; line-height: 1.2;
+    }
+    .section-desc { color: var(--gray); font-size: .95rem; line-height: 1.6; max-width: 480px; }
+    .tabs {
+      display: flex; gap: 0; margin: 32px 0 28px;
+      background: var(--white); border-radius: var(--radius); padding: 4px;
+      border: 1px solid var(--border); width: fit-content;
+    }
+    .tabs button {
+      padding: 10px 24px; border: none; background: transparent; border-radius: 8px;
+      font-size: .85rem; font-weight: 600; cursor: pointer; font-family: inherit;
+      color: #888; transition: all .2s;
+    }
+    .tabs button.active { background: var(--gold); color: var(--black); }
 
-    /* ======== GRID ======== */
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; }
-
+    /* ===== GRID ===== */
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+    }
     .card {
-      background: var(--white); border-radius: 10px; overflow: hidden;
-      border: 1px solid var(--border); transition: all .2s;
+      background: var(--white); border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--border); transition: all .3s;
       text-decoration: none; color: inherit; display: block;
-      cursor: pointer; position: relative;
+      cursor: pointer;
     }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,.06); }
-    .card .img {
-      height: 200px; background: #e8e4de; position: relative; overflow: hidden;
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .card-img {
+      height: 210px; position: relative; overflow: hidden; background: #e8e4de;
     }
-    .card .img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
-    .card:hover .img img { transform: scale(1.03); }
-    .card .img .tag { position: absolute; top: 12px; left: 12px; background: var(--gold); color: var(--black); padding: 4px 10px; border-radius: 4px; font-size: .72rem; font-weight: 700; }
-    .card .img .price { position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,.7); color: var(--white); padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: .9rem; backdrop-filter: blur(4px); }
-    .card .img .fav { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; background: rgba(255,255,255,.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .85rem; cursor: pointer; backdrop-filter: blur(4px); border: none; }
-    .card .body { padding: 14px 16px 16px; }
-    .card .body h3 { font-size: .9rem; font-weight: 600; margin-bottom: 3px; }
-    .card .body .loc { font-size: .8rem; color: var(--gray); margin-bottom: 8px; }
-    .card .body .specs { display: flex; gap: 12px; font-size: .78rem; color: #555; }
-    .card .body .specs span { display: flex; align-items: center; gap: 3px; }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .card:hover .card-img img { transform: scale(1.05); }
+    .card-tag {
+      position: absolute; top: 14px; left: 14px; background: var(--gold); color: var(--black);
+      padding: 4px 12px; border-radius: 4px; font-size: .72rem; font-weight: 700;
+    }
+    .card-price {
+      position: absolute; bottom: 14px; right: 14px;
+      background: rgba(0,0,0,.7); backdrop-filter: blur(8px); color: var(--white);
+      padding: 6px 14px; border-radius: 6px; font-weight: 700; font-size: .95rem;
+    }
+    .card-body { padding: 18px 20px 20px; }
+    .card-body h3 { font-size: .92rem; font-weight: 600; margin-bottom: 4px; }
+    .card-body .loc { font-size: .8rem; color: var(--gray); margin-bottom: 10px; }
+    .card-body .specs { display: flex; gap: 14px; font-size: .78rem; color: #555; }
+    .card-body .specs span { display: flex; align-items: center; gap: 4px; }
 
-    /* ======== SECTIONS ======== */
-    section { padding: 48px 0; }
-    .section-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
-    .section-sub { color: var(--gray); font-size: .88rem; margin-bottom: 24px; }
-
-    /* ======== PROMO ======== */
-    .promo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; }
+    /* ===== PROMO SECTION ===== */
+    .promo-section { background: var(--near-black); color: var(--white); }
+    .promo-section .section-title { color: var(--white); }
+    .promo-section .section-desc { color: rgba(255,255,255,.5); }
+    .promo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 20px; margin-top: 32px; }
     .promo-card {
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a); border-radius: 10px;
-      padding: 28px; color: var(--white); position: relative; overflow: hidden;
+      background: linear-gradient(145deg, #1c1c1c, #121212);
+      border-radius: var(--radius); padding: 32px; position: relative; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06); transition: all .3s;
     }
-    .promo-card::after { content: ''; position: absolute; top: -50%; right: -30%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(200,162,99,.08), transparent 60%); border-radius: 50%; }
-    .promo-card .badge { display: inline-block; background: var(--gold); color: var(--black); padding: 3px 10px; border-radius: 3px; font-size: .7rem; font-weight: 700; letter-spacing: .3px; margin-bottom: 12px; }
-    .promo-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; position: relative; z-index: 1; }
-    .promo-card p { color: rgba(255,255,255,.5); font-size: .82rem; line-height: 1.5; margin-bottom: 16px; position: relative; z-index: 1; }
-    .promo-card .btn { display: inline-block; border: 1px solid var(--gold); color: var(--gold); padding: 8px 18px; border-radius: 6px; font-size: .8rem; font-weight: 500; text-decoration: none; position: relative; z-index: 1; transition: all .15s; }
+    .promo-card:hover { border-color: rgba(200,162,99,.3); transform: translateY(-3px); }
+    .promo-card .badge {
+      display: inline-block; background: var(--gold); color: var(--black);
+      padding: 3px 10px; border-radius: 3px; font-size: .65rem; font-weight: 700;
+      letter-spacing: .3px; margin-bottom: 16px;
+    }
+    .promo-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .promo-card p { color: rgba(255,255,255,.4); font-size: .82rem; line-height: 1.6; margin-bottom: 20px; }
+    .promo-card .btn {
+      display: inline-block; border: 1px solid var(--gold); color: var(--gold);
+      padding: 8px 20px; border-radius: 6px; font-size: .8rem; font-weight: 600;
+      text-decoration: none; transition: all .2s;
+    }
     .promo-card .btn:hover { background: var(--gold); color: var(--black); }
 
-    /* ======== PROVINCIAS ======== */
-    .prov-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    /* ===== PROVINCIAS ===== */
+    .prov-section { background: var(--white); }
+    .prov-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
     .prov-grid a {
-      padding: 6px 16px; background: var(--white); border: 1px solid var(--border);
-      border-radius: 6px; color: #555; text-decoration: none; font-size: .8rem; transition: all .15s;
+      padding: 8px 20px; background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; color: #555; text-decoration: none; font-size: .82rem;
+      transition: all .15s; font-weight: 500;
     }
-    .prov-grid a:hover { border-color: var(--gold); color: var(--gold); }
+    .prov-grid a:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-light); }
 
-    /* ======== FOOTER ======== */
-    footer { background: #0f0f0f; color: rgba(255,255,255,.5); padding: 40px 0 24px; }
-    footer .grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
-    footer h4 { color: var(--white); font-size: .82rem; margin-bottom: 12px; }
-    footer p { font-size: .8rem; line-height: 1.6; }
-    footer a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem; display: block; margin-bottom: 6px; }
+    /* ===== FOOTER ===== */
+    footer { background: var(--black); color: rgba(255,255,255,.4); padding: 48px 0 28px; }
+    footer .grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+    footer h4 { color: var(--white); font-size: .82rem; margin-bottom: 16px; font-weight: 600; }
+    footer p { font-size: .82rem; line-height: 1.7; }
+    footer a { color: rgba(255,255,255,.4); text-decoration: none; font-size: .82rem; display: block; margin-bottom: 8px; transition: color .15s; }
     footer a:hover { color: var(--gold); }
-    footer .bottom { border-top: 1px solid #222; padding-top: 20px; margin-top: 28px; text-align: center; font-size: .75rem; }
+    footer .bottom { border-top: 1px solid #222; padding-top: 24px; margin-top: 40px; text-align: center; font-size: .78rem; }
+    footer .logo-footer { color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+    footer .logo-footer span { color: var(--gold); }
 
-    .spinner { width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin .6s infinite; margin: 40px auto; }
+    .spinner { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin .6s infinite; margin: 48px auto; }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .empty { text-align: center; padding: 60px 20px; color: var(--gray); grid-column:1/-1; }
+    .empty { text-align: center; padding: 80px 20px; color: var(--gray); grid-column: 1/-1; }
 
     @media (max-width: 768px) {
-      header .wrap { padding: 0 16px; }
-      .wrap { padding: 0 16px; }
-      .hero { height: auto; padding: 60px 0; }
+      .wrap { padding: 0 20px; }
+      .hero { height: auto; padding: 80px 0 60px; min-height: auto; }
       .hero-search { flex-direction: column; padding: 8px; }
       .hero-search select { border-left: none; border-top: 1px solid var(--border); width: 100%; }
-      .hero-search button { width: 100%; margin-top: 4px; }
-      nav { gap: 12px; }
+      .hero-search .btn-search { width: 100%; }
       nav a:not(.btn-header) { display: none; }
       footer .grid { grid-template-columns: 1fr; }
-      .tabs button { font-size: .8rem; padding: 10px; }
+      .tabs { width: 100%; }
+      .tabs button { flex: 1; text-align: center; padding: 10px 12px; font-size: .78rem; }
     }
   </style>
 </head>
@@ -151,23 +243,26 @@
 
 <header>
   <div class="wrap">
-    <a href="/" class="logo">Nueva <span>Era</span></a>
+    <a href="/" class="logo"><div class="logo-mark">NE</div> Nueva <span>Era</span></a>
     <nav>
       <a href="#">Comprar</a>
       <a href="#">Alquilar</a>
       <a href="#">Obra nueva</a>
+      <a href="#">Constructores</a>
       <a href="/publicar.html" class="btn-header">+ Publicar</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
+  <div class="hero-bg"></div>
   <div class="wrap">
     <div class="hero-content">
-      <h1>Tu <em>próxima casa</em><br>está aquí</h1>
-      <p>Las mejores viviendas de toda España. Directo del propietario o con profesionales.</p>
+      <div class="hero-tag">Más de 0 viviendas disponibles</div>
+      <h1>Tu próxima <em>casa</em><br>te está esperando</h1>
+      <p>El portal inmobiliario con las mejores viviendas de toda España. Directo, sin comisiones ocultas.</p>
       <form class="hero-search" id="hero-search" onsubmit="return buscar(event)">
-        <input type="text" id="q" placeholder="Ciudad, barrio…">
+        <input type="text" id="q" placeholder="Ciudad, barrio o código postal…">
         <select id="op">
           <option value="venta">Comprar</option>
           <option value="alquiler">Alquilar</option>
@@ -176,145 +271,161 @@
           <option value="">Todos</option>
           <option>Piso</option><option>Casa</option><option>Ático</option><option>Adosado</option>
         </select>
-        <button type="submit">Buscar</button>
+        <button class="btn-search" type="submit">🔍 Buscar</button>
       </form>
+      <div class="hero-tags">
+        <a href="#" onclick="buscarTag('Madrid');return false">Madrid</a>
+        <a href="#" onclick="buscarTag('Barcelona');return false">Barcelona</a>
+        <a href="#" onclick="buscarTag('Valencia');return false">Valencia</a>
+        <a href="#" onclick="buscarTag('Alicante');return false">Alicante</a>
+        <a href="#" onclick="buscarTag('Málaga');return false">Málaga</a>
+        <a href="#" onclick="buscarTag('Sevilla');return false">Sevilla</a>
+      </div>
     </div>
   </div>
+  <div class="hero-scroll">↓</div>
 </section>
 
 <div class="wrap">
-  <section>
-    <div class="tabs" id="tabs">
-      <button class="active" onclick="switchTab('venta',this)">🏠 Comprar</button>
-      <button onclick="switchTab('alquiler',this)">🔑 Alquilar</button>
-      <button onclick="switchTab('obra-nueva',this)">🏗️ Obra nueva</button>
+  <section id="listado">
+    <div class="section-label">— Viviendas —</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h2 class="section-title">Últimas viviendas</h2>
+        <p class="section-desc">Las propiedades más recientes añadidas por propietarios y profesionales.</p>
+      </div>
+      <div class="tabs" id="tabs">
+        <button class="active" onclick="switchTab('venta',this)">Comprar</button>
+        <button onclick="switchTab('alquiler',this)">Alquilar</button>
+        <button onclick="switchTab('venta',this)">Obra nueva</button>
+      </div>
     </div>
-    <div class="grid" id="grid"></div>
+    <div class="grid" id="grid"><div class="spinner" style="grid-column:1/-1"></div></div>
   </section>
 </div>
 
-<section>
+<section class="promo-section">
   <div class="wrap">
-    <h2 class="section-title">Para profesionales</h2>
-    <p class="section-sub">Espacios publicitarios para constructoras, promotoras y agencias</p>
+    <div class="section-label">— Para profesionales —</div>
+    <h2 class="section-title">¿Eres constructor, promotor o agencia?</h2>
+    <p class="section-desc">Espacios publicitarios y planes especiales para profesionales del sector inmobiliario.</p>
     <div class="promo-grid">
       <div class="promo-card">
         <div class="badge">Obra nueva</div>
         <h3>Publica tus promociones</h3>
-        <p>Llega a compradores reales. Publica tus viviendas con fotos, planos y precios.</p>
-        <a href="#" class="btn">Más info →</a>
+        <p>Llega a compradores reales. Publica tus viviendas con fotos, planos y precios. Capta clientes en tu zona.</p>
+        <a href="#" class="btn">Más información →</a>
       </div>
       <div class="promo-card">
         <div class="badge">Publicidad</div>
         <h3>Anúnciate con nosotros</h3>
-        <p>Banners, destacados, patrocinios por provincia. Segmenta tu público objetivo.</p>
+        <p>Banners destacados, patrocinios por provincia y sección. Segmenta tu público objetivo y maximiza tu inversión.</p>
         <a href="#" class="btn">Ver planes →</a>
       </div>
       <div class="promo-card">
         <div class="badge">Agencias</div>
         <h3>¿Eres agencia inmobiliaria?</h3>
-        <p>Planes especiales para agencias. Publica carteras completas con condiciones preferentes.</p>
+        <p>Planes especiales para agencias. Publica carteras completas con condiciones preferentes y herramientas exclusivas.</p>
         <a href="#" class="btn">Solicitar info →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:var(--white)">
-  <div class="wrap">
-    <h2 class="section-title">Provincias</h2>
-    <p class="section-sub">Encuentra vivienda en tu zona</p>
+<div class="wrap">
+  <section class="prov-section" style="background:transparent;padding-bottom:64px">
+    <div class="section-label">— Provincias —</div>
+    <h2 class="section-title">Encuentra tu hogar en toda España</h2>
     <div class="prov-grid" id="prov-grid"></div>
-  </div>
-</section>
+  </section>
+</div>
 
 <footer>
   <div class="wrap">
     <div class="grid">
       <div>
-        <div class="logo" style="color:var(--white);margin-bottom:12px">Nueva <span>Era</span></div>
-        <p>Portal inmobiliario. Compra, venta y alquiler directo. Sin comisiones ocultas.</p>
+        <div class="logo-footer">Nueva <span>Era</span></div>
+        <p>Portal inmobiliario para comprar, vender y alquilar. Directo, transparente y sin comisiones ocultas.</p>
       </div>
       <div>
         <h4>Inmuebles</h4>
-        <a href="#">Pisos</a><a href="#">Casas</a><a href="#">Áticos</a><a href="#">Adosados</a>
+        <a href="#">Pisos</a><a href="#">Casas</a><a href="#">Áticos</a><a href="#">Adosados</a><a href="#">Locales</a>
       </div>
       <div>
         <h4>Profesionales</h4>
-        <a href="#">Publicar</a><a href="#">Constructores</a><a href="#">Agencias</a><a href="#">Publicidad</a>
+        <a href="#">Publicar anuncios</a><a href="#">Constructores</a><a href="#">Agencias</a><a href="#">Planes publicitarios</a>
       </div>
       <div>
         <h4>Legal</h4>
-        <a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a>
+        <a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a><a href="#">Contacto</a>
       </div>
     </div>
-    <div class="bottom">Nueva Era &copy; 2026</div>
+    <div class="bottom">© 2026 Nueva Era. Todos los derechos reservados.</div>
   </div>
 </footer>
 
 <script>
 const API = 'https://wypgqpgjlookbhuaiyxa.supabase.co/functions/v1/nueva-era';
-let opActual = 'venta';
 const PICS = [
-  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80',
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
-  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80',
-  'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80',
-  'https://images.unsplash.com/photo-1600573472556-3b0c81c50e31?w=600&q=80',
-  'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80',
-  'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80',
-  'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=600&q=80',
-  'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80',
-  'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=600&q=80',
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=85',
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=85',
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=85',
+  'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=85',
+  'https://images.unsplash.com/photo-1600573472556-3b0c81c50e31?w=600&q=85',
+  'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=85',
+  'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=85',
+  'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=600&q=85',
+  'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=85',
+  'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=600&q=85',
 ];
+let opActual = 'venta';
 
 document.addEventListener('DOMContentLoaded', () => { cargar('venta'); renderProvs(); });
 
 async function cargar(op) {
+  opActual = op;
   const el = document.getElementById('grid'); el.innerHTML = '<div class="spinner"></div>';
   try {
     const r = await fetch(API + '?action=listar&page=1&operacion=' + op);
     const d = await r.json();
     if (!d.pisos || !d.pisos.length) {
-      el.innerHTML = '<div class="empty"><p style="font-size:1.1rem;margin-bottom:8px">🏠 Aún no hay anuncios</p><p style="font-size:.85rem">Publica el primero.</p><a href="/publicar.html" style="display:inline-block;margin-top:16px;background:var(--gold);color:var(--black);padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:600">Publicar →</a></div>';
+      el.innerHTML = '<div class="empty"><p style="font-size:1.1rem;margin-bottom:8px">🏠 No hay anuncios</p><p style="font-size:.85rem">Publica el primero.</p><a href="/publicar.html" style="display:inline-block;margin-top:16px;background:var(--gold);color:var(--black);padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:600">Publicar →</a></div>';
       return;
     }
     el.innerHTML = d.pisos.map((p,i) => card(p,i)).join('');
-  } catch(_) { el.innerHTML = '<div class="empty">Error</div>'; }
+  } catch(e) { el.innerHTML = '<div class="empty">Error al cargar</div>'; }
 }
 
 function card(p,i) {
-  const img = PICS[i % PICS.length];
+  const img = p.fotos?.[0] || PICS[i % PICS.length];
   const pStr = (p.precio||0).toLocaleString('es-ES') + ' €';
   const opLbl = p.operacion === 'alquiler' ? 'Alquiler' : 'Venta';
-  const tipo = p.tipo ? p.tipo.charAt(0).toUpperCase()+p.tipo.slice(1) : 'Piso';
   return `<a href="/piso.html?id=${p.id}" class="card">
-    <div class="img">
-      <img src="${img}" alt="${p.titulo||'Vivienda'}" loading="lazy">
-      <span class="tag">${opLbl}</span>
-      <span class="price">${pStr}</span>
-    </div>
-    <div class="body">
-      <h3>${p.titulo || tipo + ' en ' + (p.ciudad||p.provincia)}</h3>
+    <div class="card-img"><img src="${img}" alt="${p.titulo||'Vivienda'}" loading="lazy"><span class="card-tag">${opLbl}</span><span class="card-price">${pStr}</span></div>
+    <div class="card-body">
+      <h3>${p.titulo || (p.tipo?p.tipo.charAt(0).toUpperCase()+p.tipo.slice(1):'Piso') + ' en ' + (p.ciudad||p.provincia)}</h3>
       <div class="loc">📍 ${[p.ciudad,p.provincia].filter(Boolean).join(', ')}</div>
-      <div class="specs">
-        ${p.m2 ? '<span>📐 '+p.m2+' m²</span>' : ''}
-        ${p.habitaciones ? '<span>🛏️ '+p.habitaciones+'</span>' : ''}
-        ${p.banos ? '<span>🚿 '+p.banos+'</span>' : ''}
-      </div>
+      <div class="specs">${p.m2?'<span>📐 '+p.m2+' m²</span>':''}${p.habitaciones?'<span>🛏️ '+p.habitaciones+'</span>':''}${p.banos?'<span>🚿 '+p.banos+'</span>':''}</div>
     </div>
   </a>`;
 }
 
 function switchTab(op, btn) {
-  opActual = op;
   document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  cargar(op === 'obra-nueva' ? 'venta' : op);
+  btn.classList.add('active'); cargar(op);
 }
 
-function buscar(e) { e.preventDefault(); document.getElementById('grid').scrollIntoView({behavior:'smooth'}); cargar(document.getElementById('op').value); }
-
+function buscar(e) {
+  e.preventDefault();
+  document.getElementById('listado').scrollIntoView({behavior:'smooth'});
+  cargar(document.getElementById('op').value);
+}
+function buscarTag(p) {
+  document.getElementById('q').value = p;
+  document.getElementById('op').value = 'venta';
+  document.getElementById('listado').scrollIntoView({behavior:'smooth'});
+  cargar('venta');
+}
 function renderProvs() {
   const ps = ['Madrid','Barcelona','Valencia','Sevilla','Alicante','Málaga','Murcia','Asturias','Baleares','Zaragoza','Granada','Cádiz','Tenerife','Vizcaya','A Coruña','Valladolid','Cantabria','Navarra','Girona','Tarragona','Castellón','Toledo','Jaén','Córdoba','León','Burgos','Almería','Badajoz','Pontevedra','La Rioja','Huesca'];
   document.getElementById('prov-grid').innerHTML = ps.map(p => `<a href="#" onclick="return false">${p}</a>`).join('');
