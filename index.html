@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva Era — Portal Inmobiliario</title>
+  <meta name="description" content="Portal inmobiliario. Compra y venta de viviendas. Publica tu piso gratis. Encuentra tu hogar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Outfit', sans-serif; background: #f8f6f3; color: #1a1a2e; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    
+    /* Header */
+    header { background: white; border-bottom: 1px solid #e8e4e0; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+    header .container { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.4rem; font-weight: 800; color: #1a1a2e; text-decoration: none; display: flex; align-items: center; gap: .5rem; }
+    .logo span { color: #c8a97e; }
+    .logo-sub { font-size: .7rem; font-weight: 400; color: #9a8e87; display: block; margin-top: -2px; }
+    nav { display: flex; gap: 1.5rem; align-items: center; }
+    nav a { color: #4a4a5e; text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .15s; }
+    nav a:hover { color: #c8a97e; }
+    .btn-publicar { background: #c8a97e; color: white !important; padding: .6rem 1.4rem; border-radius: 8px; font-weight: 600; }
+    .btn-publicar:hover { background: #b89565 !important; }
+    
+    /* Hero */
+    .hero { padding: 5rem 0 4rem; text-align: center; }
+    .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: .75rem; line-height: 1.15; }
+    .hero h1 span { color: #c8a97e; }
+    .hero p { font-size: 1.1rem; color: #6b6b7e; max-width: 600px; margin: 0 auto 2rem; line-height: 1.6; }
+    
+    /* Buscador */
+    .buscador { background: white; border-radius: 16px; padding: 1.5rem; max-width: 700px; margin: 0 auto; box-shadow: 0 4px 24px rgba(0,0,0,.06); display: flex; gap: .75rem; flex-wrap: wrap; }
+    .buscador input, .buscador select { flex: 1; min-width: 180px; padding: .85rem 1rem; border: 2px solid #e8e4e0; border-radius: 10px; font-size: .95rem; font-family: inherit; outline: none; transition: border-color .2s; }
+    .buscador input:focus, .buscador select:focus { border-color: #c8a97e; }
+    .buscador button { padding: .85rem 2rem; background: #1a1a2e; color: white; border: none; border-radius: 10px; font-size: .95rem; font-weight: 600; cursor: pointer; font-family: inherit; transition: background .15s; }
+    .buscador button:hover { background: #2d2d4e; }
+    
+    /* Stats */
+    .stats { padding: 3rem 0; text-align: center; }
+    .stats-grid { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .stat-item { flex: 1; min-width: 150px; }
+    .stat-item .num { font-size: 2rem; font-weight: 800; color: #c8a97e; }
+    .stat-item .label { font-size: .85rem; color: #9a8e87; margin-top: .25rem; }
+    
+    /* Cómo funciona */
+    .como-funciona { padding: 4rem 0; background: white; }
+    .como-funciona h2 { text-align: center; font-size: 2rem; margin-bottom: 3rem; }
+    .steps { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .step { flex: 1; min-width: 220px; max-width: 300px; text-align: center; }
+    .step .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .step h3 { font-size: 1.1rem; margin-bottom: .5rem; }
+    .step p { font-size: .88rem; color: #6b6b7e; line-height: 1.6; }
+    
+    /* Provincias */
+    .provincias { padding: 4rem 0; }
+    .provincias h2 { text-align: center; font-size: 2rem; margin-bottom: .5rem; }
+    .provincias p.sub { text-align: center; color: #9a8e87; margin-bottom: 2rem; }
+    .prov-grid { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
+    .prov-grid a { padding: .6rem 1.2rem; background: white; border: 1px solid #e8e4e0; border-radius: 8px; color: #4a4a5e; text-decoration: none; font-size: .85rem; transition: all .15s; }
+    .prov-grid a:hover { border-color: #c8a97e; color: #c8a97e; }
+    
+    footer { text-align: center; padding: 2rem 0; color: #9a8e87; font-size: .82rem; border-top: 1px solid #e8e4e0; }
+    
+    /* Proximamente */
+    .coming-soon { background: #f8f6f3; border-radius: 12px; padding: 3rem; text-align: center; margin: 2rem 0; border: 2px dashed #dcd4ce; }
+    .coming-soon h3 { color: #c8a97e; font-size: 1.2rem; margin-bottom: .5rem; }
+    .coming-soon p { color: #9a8e87; font-size: .9rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      nav a { font-size: .8rem; }
+      nav { gap: .75rem; }
+      .buscador { flex-direction: column; }
+      .buscador input, .buscador select { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1a1a2e"/><text x="16" y="23" text-anchor="middle" fill="white" font-size="18" font-weight="700" font-family="Outfit,sans-serif">NE</text></svg>
+      Nueva <span>Era</span>
+      <span class="logo-sub">Portal inmobiliario</span>
+    </a>
+    <nav>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#provincias">Provincias</a>
+      <a href="#publicar" class="btn-publicar">Publicar piso</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>El portal inmobiliario de la <span>nueva era</span></h1>
+    <p>Compra, vende o alquila tu vivienda. Sin complicaciones. Directo entre particulares o con profesionales.</p>
+    
+    <form class="buscador" onsubmit="return buscar(event)">
+      <select>
+        <option value="">Todas las provincias</option>
+      </select>
+      <select>
+        <option value="">Cualquier tipo</option>
+        <option>Piso</option>
+        <option>Casa</option>
+        <option>Adosado</option>
+        <option>Ático</option>
+        <option>Local</option>
+      </select>
+      <button type="submit">Buscar</button>
+    </form>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="num">0</div><div class="label">Anuncios publicados</div></div>
+      <div class="stat-item"><div class="num">0</div><div class="label">Provincias</div></div>
+      <div class="stat-item"><div class="num">0</div><div class="label">Usuarios</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="como-funciona" id="como-funciona">
+  <div class="container">
+    <h2>Cómo funciona</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="icon">📸</div>
+        <h3>Publica tu piso</h3>
+        <p>Sube fotos, precio y descripción. En 5 minutos tu anuncio está online.</p>
+      </div>
+      <div class="step">
+        <div class="icon">📱</div>
+        <h3>Recibe interesados</h3>
+        <p>Los compradores te contactan directamente. Sin intermediarios.</p>
+      </div>
+      <div class="step">
+        <div class="icon">🤝</div>
+        <h3>Vende o alquila</h3>
+        <p>Tú pones las condiciones. Nosotros solo ponemos el escaparate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="provincias" id="provincias">
+  <div class="container">
+    <h2>Todas las provincias</h2>
+    <p class="sub">Próximamente anuncios en toda España</p>
+    <div class="prov-grid">
+      <a href="#">Madrid</a><a href="#">Barcelona</a><a href="#">Valencia</a>
+      <a href="#">Sevilla</a><a href="#">Alicante</a><a href="#">Málaga</a>
+      <a href="#">Murcia</a><a href="#">Asturias</a><a href="#">Baleares</a>
+      <a href="#">Zaragoza</a><a href="#">Granada</a><a href="#">Cádiz</a>
+      <a href="#">Tenerife</a><a href="#">Vizcaya</a><a href="#">La Coruña</a>
+      <a href="#">Valladolid</a><a href="#">Cantabria</a><a href="#">Navarra</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 2rem 0 4rem" id="publicar">
+  <div class="container">
+    <div class="coming-soon">
+      <h3>🚧 Publicación de anuncios — Próximamente</h3>
+      <p>Estamos preparando el sistema para que puedas publicar tu piso en minutos. Déjanos tu email y te avisamos.</p>
+      <div style="display:flex;gap:.5rem;justify-content:center;margin-top:1rem;flex-wrap:wrap">
+        <input type="email" placeholder="tu@email.com" style="padding:.75rem 1rem;border:2px solid #e8e4e0;border-radius:8px;font-size:.9rem;min-width:250px;font-family:inherit">
+        <button style="padding:.75rem 1.5rem;background:#c8a97e;color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit">Avisarme</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Nueva Era — Portal Inmobiliario &copy; 2026. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+function buscar(e) {
+  e.preventDefault();
+  alert('🔍 Próximamente — buscador activo. Vuelve pronto.');
+}
+</script>
+
+<script data-goatcounter="https://certificadoya.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
