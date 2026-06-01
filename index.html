@@ -13,7 +13,6 @@
     body { font-family: 'Inter', sans-serif; background: #faf9f7; color: #1b1b1f; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-    /* H E A D E R */
     header { 
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(250,249,247,.92); backdrop-filter: blur(12px);
@@ -30,104 +29,68 @@
     nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #d4af37; transition: width .2s; }
     nav a:hover { color: #1b1b1f; }
     nav a:hover::after { width: 100%; }
-    .btn-primary { 
-      background: #1b1b1f; color: #faf9f7 !important; padding: .65rem 1.5rem; 
+    .btn-nav {
+      background: #1b1b1f; color: #faf9f7 !important; padding: .65rem 1.5rem;
       border-radius: 50px; font-weight: 600; font-size: .85rem; transition: all .2s;
     }
-    .btn-primary:hover { background: #2d2d35; }
-    .btn-primary::after { display: none !important; }
+    .btn-nav:hover { background: #2d2d35; }
+    .btn-nav::after { display: none !important; }
 
-    /* H E R O */
     .hero {
-      min-height: 100vh; display: flex; align-items: center;
+      min-height: 80vh; display: flex; align-items: center;
       background: linear-gradient(135deg, #faf9f7 0%, #f2ede8 100%);
       padding-top: 68px;
     }
-    .hero-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-    }
-    .hero-content h1 {
+    .hero-inner { text-align: center; max-width: 800px; margin: 0 auto; }
+    .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -1px;
-      margin-bottom: 1.25rem; color: #1b1b1f;
+      margin-bottom: 1rem; color: #1b1b1f;
     }
-    .hero-content h1 em { font-style: normal; color: #d4af37; }
-    .hero-content p {
+    .hero h1 em { font-style: normal; color: #d4af37; }
+    .hero p {
       font-size: 1.05rem; line-height: 1.7; color: #5a5650;
-      margin-bottom: 2.5rem; max-width: 480px;
+      margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;
     }
     .hero-search {
       background: white; border-radius: 16px; padding: .5rem;
       box-shadow: 0 8px 40px rgba(0,0,0,.06);
-      display: flex; gap: .5rem; align-items: center;
-      max-width: 600px;
+      display: flex; gap: .5rem; align-items: center; max-width: 650px; margin: 0 auto;
     }
-    .hero-search input,
-    .hero-search select {
+    .hero-search input, .hero-search select {
       flex: 1; border: none; padding: .9rem 1rem; font-size: .9rem;
-      font-family: inherit; outline: none; background: transparent;
-      color: #1b1b1f; min-width: 0;
+      font-family: inherit; outline: none; background: transparent; color: #1b1b1f;
     }
-    .hero-search select { cursor: pointer; min-width: 140px; border-left: 1px solid #eae7e2; }
+    .hero-search select { cursor: pointer; border-left: 1px solid #eae7e2; min-width: 130px; }
     .hero-search button {
       background: #d4af37; border: none; border-radius: 12px;
-      padding: .9rem 1.8rem; font-weight: 600; font-size: .9rem;
-      cursor: pointer; font-family: inherit; color: #1b1b1f;
-      transition: background .2s; white-space: nowrap;
+      padding: .9rem 2rem; font-weight: 600; font-size: .9rem;
+      cursor: pointer; font-family: inherit; color: #1b1b1f; transition: background .2s; white-space: nowrap;
     }
     .hero-search button:hover { background: #c4a030; }
-    .hero-stats { display: flex; gap: 2.5rem; margin-top: 2.5rem; }
+    .hero-stats { display: flex; gap: 2.5rem; justify-content: center; margin-top: 2.5rem; }
     .hero-stats .num { font-size: 1.5rem; font-weight: 700; color: #1b1b1f; }
     .hero-stats .lbl { font-size: .82rem; color: #8a8078; }
-    .hero-visual {
-      position: relative;
-    }
-    .hero-visual .img-placeholder {
-      width: 100%; aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #1b1b1f 0%, #2d2d35 50%, #d4af37 100%);
-      border-radius: 24px; display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,.08); font-size: 4rem; overflow: hidden;
-      position: relative;
-    }
-    .hero-visual .img-placeholder::before {
-      content: '🏠'; position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%,-50%); font-size: 6rem; opacity: .15;
-    }
-    .badge-float {
-      position: absolute; bottom: -1rem; left: -1rem;
-      background: white; border-radius: 16px; padding: 1.25rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,.08);
-    }
-    .badge-float p { font-size: .8rem; color: #8a8078; }
-    .badge-float strong { color: #1b1b1f; font-size: 1.1rem; }
 
-    /* S E C C I O N E S */
     section { padding: 5rem 0; }
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem;
-    }
-    section .subtitle { color: #8a8078; font-size: .95rem; margin-bottom: 3rem; }
+    section h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; text-align: center; }
+    section .subtitle { color: #8a8078; font-size: .9rem; text-align: center; margin-bottom: 3rem; }
 
-    /* C Ó M O   F U N C I O N A */
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
     .step {
       background: white; border-radius: 20px; padding: 2.5rem 2rem;
-      border: 1px solid #eae7e2; transition: all .2s;
+      border: 1px solid #eae7e2; transition: all .2s; text-align: center;
     }
     .step:hover { border-color: #d4af37; box-shadow: 0 8px 32px rgba(212,175,55,.08); }
     .step .num-circle {
       width: 48px; height: 48px; border-radius: 50%; background: #f4f0eb;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1.1rem; color: #d4af37; margin-bottom: 1.25rem;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;
+      font-weight: 700; font-size: 1.1rem; color: #d4af37;
     }
     .step h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: .75rem; }
     .step p { font-size: .88rem; line-height: 1.7; color: #5a5650; }
 
-    /* P R O V I N C I A S */
-    .prov-grid {
-      display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center;
-    }
+    .prov-grid { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
     .prov-grid a {
       padding: .65rem 1.4rem; background: white; border: 1px solid #eae7e2;
       border-radius: 50px; color: #4a4642; text-decoration: none;
@@ -135,32 +98,62 @@
     }
     .prov-grid a:hover { border-color: #d4af37; background: #faf9f7; color: #1b1b1f; }
 
-    /* C T A */
     .cta-box {
       background: #1b1b1f; border-radius: 24px; padding: 4rem;
       text-align: center; color: #faf9f7;
     }
     .cta-box h2 { color: #faf9f7; }
     .cta-box p { color: #8a8078; font-size: .95rem; margin-bottom: 2rem; }
-    .cta-box .btn-primary { background: #d4af37; color: #1b1b1f !important; font-size: .95rem; padding: .85rem 2.5rem; display: inline-block; text-decoration: none; }
+    .btn-gold { background: #d4af37; color: #1b1b1f; padding: .85rem 2.5rem; border-radius: 50px; font-weight: 600; font-size: .95rem; display: inline-block; text-decoration: none; transition: background .2s; border: none; cursor: pointer; font-family: inherit; }
+    .btn-gold:hover { background: #c4a030; }
 
-    /* F O O T E R */
-    footer { 
-      border-top: 1px solid #eae7e2; padding: 2.5rem 0;
-      text-align: center; color: #8a8078; font-size: .82rem;
+    .ultimos-pisos { background: white; }
+    .pisos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .piso-card {
+      background: #faf9f7; border-radius: 16px; overflow: hidden;
+      border: 1px solid #eae7e2; transition: all .2s; text-decoration: none; color: inherit; display: block;
     }
+    .piso-card:hover { border-color: #d4af37; box-shadow: 0 8px 32px rgba(0,0,0,.06); transform: translateY(-2px); }
+    .piso-card .img {
+      height: 200px; background: #eae7e2; display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; color: #8a8078; position: relative;
+    }
+    .piso-card .img .tipo-badge {
+      position: absolute; top: .75rem; left: .75rem;
+      background: rgba(27,27,31,.8); color: #faf9f7; padding: .25rem .7rem;
+      border-radius: 20px; font-size: .75rem; font-weight: 500;
+    }
+    .piso-card .img .precio-badge {
+      position: absolute; bottom: .75rem; right: .75rem;
+      background: #d4af37; color: #1b1b1f; padding: .3rem .8rem;
+      border-radius: 8px; font-weight: 700; font-size: .9rem;
+    }
+    .piso-card .info { padding: 1.25rem; }
+    .piso-card .info h3 { font-size: .95rem; font-weight: 600; margin-bottom: .3rem; }
+    .piso-card .info .ubicacion { font-size: .82rem; color: #8a8078; margin-bottom: .5rem; }
+    .piso-card .info .carac { display: flex; gap: 1rem; font-size: .82rem; color: #5a5650; }
 
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-content h1 { font-size: 2.2rem; }
-      .hero-visual { display: none; }
+    .no-results { text-align: center; padding: 4rem 2rem; color: #8a8078; }
+    .no-results .icon { font-size: 3rem; margin-bottom: 1rem; }
+
+    .spinner {
+      width: 40px; height: 40px; border: 4px solid #eae7e2; border-top-color: #d4af37;
+      border-radius: 50%; animation: spin .6s linear infinite; margin: 2rem auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    footer { border-top: 1px solid #eae7e2; padding: 2.5rem 0; text-align: center; color: #8a8078; font-size: .82rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero-search { flex-direction: column; padding: .75rem; }
+      .hero-search select { border-left: none; border-top: 1px solid #eae7e2; width: 100%; }
+      .hero-search button { width: 100%; }
       .steps { grid-template-columns: 1fr; }
-      header { padding: 0 1rem; }
       .container { padding: 0 1rem; }
-      nav a { font-size: .8rem; }
+      header { padding: 0 1rem; }
       nav { gap: 1rem; }
-      .hero-search { flex-wrap: wrap; }
-      .hero-search select { border-left: none; border-top: 1px solid #eae7e2; }
+      nav a { font-size: .8rem; }
       .hero-stats { gap: 1.5rem; }
       .cta-box { padding: 2rem 1.5rem; }
     }
@@ -176,37 +169,38 @@
   <nav>
     <a href="#como-funciona">Cómo funciona</a>
     <a href="#provincias">Provincias</a>
-    <a href="#publicar" class="btn-primary">Publicar anuncio</a>
+    <a href="/publicar.html" class="btn-nav">Publicar anuncio</a>
   </nav>
 </header>
 
 <section class="hero">
   <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <h1>Encontrar casa <br>es <em>más fácil</em></h1>
-        <p>El portal inmobiliario donde comprar, vender o alquilar tu vivienda es directo, sin vueltas. De persona a persona.</p>
-        <form class="hero-search" onsubmit="return buscar(event)">
-          <input type="text" placeholder="Ciudad, barrio o código postal...">
-          <select>
-            <option>Compra</option>
-            <option>Alquiler</option>
-          </select>
-          <button type="submit">Buscar</button>
-        </form>
-        <div class="hero-stats">
-          <div><div class="num">0</div><div class="lbl">Anuncios</div></div>
-          <div><div class="num">0</div><div class="lbl">Provincias</div></div>
-          <div><div class="num">0</div><div class="lbl">Usuarios</div></div>
-        </div>
+    <div class="hero-inner">
+      <h1>Encontrar casa es <em>más fácil</em></h1>
+      <p>El portal inmobiliario donde comprar, vender o alquilar tu vivienda es directo, sin vueltas.</p>
+      <form class="hero-search" id="buscador-hero" onsubmit="return buscarHero(event)">
+        <input type="text" id="input-ciudad" placeholder="Ciudad, barrio o código postal...">
+        <select id="select-operacion">
+          <option value="venta">Comprar</option>
+          <option value="alquiler">Alquilar</option>
+        </select>
+        <button type="submit">Buscar</button>
+      </form>
+      <div class="hero-stats">
+        <div><div class="num" id="total-pisos">0</div><div class="lbl">Anuncios</div></div>
+        <div><div class="num" id="total-provincias">0</div><div class="lbl">Provincias</div></div>
+        <div><div class="num" id="total-visitas">0</div><div class="lbl">Visitas</div></div>
       </div>
-      <div class="hero-visual">
-        <div class="img-placeholder"></div>
-        <div class="badge-float">
-          <p>Sin comisiones ocultas</p>
-          <strong>Directo vendedor ↔ comprador</strong>
-        </div>
-      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ultimos-pisos" id="pisos">
+  <div class="container">
+    <h2>Últimos pisos</h2>
+    <p class="subtitle">Los anuncios más recientes en nuestro portal</p>
+    <div id="resultados-busqueda">
+      <div class="spinner"></div>
     </div>
   </div>
 </section>
@@ -214,22 +208,22 @@
 <section id="como-funciona">
   <div class="container">
     <h2>Así de simple</h2>
-    <p class="subtitle">Tres pasos y tu piso está en el mercado. O encuentras el tuyo.</p>
+    <p class="subtitle">Tres pasos y tu piso está en el mercado</p>
     <div class="steps">
       <div class="step">
         <div class="num-circle">1</div>
         <h3>Publica o busca</h3>
-        <p>Sube tu anuncio con fotos y precio en 5 minutos, o explora los pisos disponibles en tu zona.</p>
+        <p>Sube tu anuncio con fotos y precio en 5 minutos, o explora los pisos disponibles.</p>
       </div>
       <div class="step">
         <div class="num-circle">2</div>
         <h3>Conecta directo</h3>
-        <p>Contacta con el vendedor o comprador sin intermediarios. Todo directo, sin comisiones.</p>
+        <p>Contacta con el vendedor sin intermediarios. Todo directo, sin comisiones ocultas.</p>
       </div>
       <div class="step">
         <div class="num-circle">3</div>
         <h3>Cierra el trato</h3>
-        <p>Quedáis, negociáis y cerráis. Nosotros solo ponemos el escaparate; el resto es vuestro.</p>
+        <p>Quedáis, negociáis y cerráis. Nosotros solo ponemos el escaparate.</p>
       </div>
     </div>
   </div>
@@ -237,16 +231,9 @@
 
 <section id="provincias" style="background: white;">
   <div class="container">
-    <h2>En toda España</h2>
-    <p class="subtitle">Estamos llegando a todas las provincias. Próximamente anuncios activos.</p>
-    <div class="prov-grid">
-      <a href="#">Madrid</a><a href="#">Barcelona</a><a href="#">Valencia</a>
-      <a href="#">Sevilla</a><a href="#">Alicante</a><a href="#">Málaga</a>
-      <a href="#">Murcia</a><a href="#">Asturias</a><a href="#">Baleares</a>
-      <a href="#">Zaragoza</a><a href="#">Granada</a><a href="#">Cádiz</a>
-      <a href="#">Tenerife</a><a href="#">Vizcaya</a><a href="#">A Coruña</a>
-      <a href="#">Valladolid</a><a href="#">Cantabria</a><a href="#">Navarra</a>
-    </div>
+    <h2>Todas las provincias</h2>
+    <p class="subtitle">Encuentra piso en tu zona</p>
+    <div class="prov-grid" id="prov-grid"></div>
   </div>
 </section>
 
@@ -254,9 +241,8 @@
   <div class="container">
     <div class="cta-box">
       <h2>¿Tienes un piso que vender?</h2>
-      <p>Publica tu anuncio gratis y llega a miles de compradores. Sin permanencia, sin comisiones ocultas.</p>
-      <a href="#" class="btn-primary">Publicar anuncio →</a>
-      <p style="margin-top:1.5rem;font-size:.8rem;color:#6b6560">Próximamente disponible. Déjanos tu email y te avisamos.</p>
+      <p>Publica tu anuncio gratis y llega a miles de compradores. Sin permanencia, sin comisiones.</p>
+      <a href="/publicar.html" class="btn-gold">Publicar anuncio →</a>
     </div>
   </div>
 </section>
@@ -268,12 +254,101 @@
 </footer>
 
 <script>
-function buscar(e) {
+const API = 'https://wypgqpgjlookbhuaiyxa.supabase.co/functions/v1/nueva-era';
+const PROVINCIAS = [
+  'Madrid','Barcelona','Valencia','Sevilla','Alicante','Málaga','Murcia','Asturias',
+  'Baleares','Zaragoza','Granada','Cádiz','Tenerife','Vizcaya','A Coruña','Valladolid',
+  'Cantabria','Navarra','Girona','Tarragona','Lleida','Castellón','Toledo','Ciudad Real',
+  'Albacete','Cuenca','Guadalajara','Jaén','Córdoba','Huelva','Almería','Badajoz',
+  'Cáceres','León','Palencia','Salamanca','Segovia','Soria','Zamora','Burgos','Ávila',
+  'Pontevedra','Lugo','Ourense','La Rioja','Huesca','Teruel','Melilla','Ceuta'
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  cargarPisos();
+  cargarProvincias();
+  cargarStats();
+});
+
+async function cargarPisos(provincia, operacion) {
+  const el = document.getElementById('resultados-busqueda');
+  el.innerHTML = '<div class="spinner"></div>';
+
+  let url = API + '?action=listar&page=1';
+  if (provincia) url += '&provincia=' + encodeURIComponent(provincia);
+  if (operacion) url += '&operacion=' + encodeURIComponent(operacion);
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (!data.pisos || data.pisos.length === 0) {
+      el.innerHTML = '<div class="no-results"><div class="icon">🏠</div><h3>No hay anuncios aún</h3><p>Sé el primero en publicar tu piso.</p></div>';
+      return;
+    }
+    el.innerHTML = '<div class="pisos-grid" id="pisos-grid"></div>';
+    const grid = document.getElementById('pisos-grid');
+    grid.innerHTML = data.pisos.map(p => renderPisoCard(p)).join('');
+  } catch (e) {
+    el.innerHTML = '<div class="no-results"><div class="icon">⚠️</div><h3>Error al cargar</h3></div>';
+  }
+}
+
+function renderPisoCard(p) {
+  const fotos = p.fotos && p.fotos.length > 0;
+  const imgEmoji = p.tipo === 'piso' ? '🏢' : p.tipo === 'casa' ? '🏠' : p.tipo === 'ático' ? '🏛️' : '🏡';
+  const tipoLabel = p.tipo || 'piso';
+  const precio = p.precio?.toLocaleString('es-ES') + ' €';
+  return `
+    <a href="/piso.html?id=${p.id}" class="piso-card">
+      <div class="img"${fotos ? '' : ''}>
+        <span style="opacity:.3;font-size:4rem">${imgEmoji}</span>
+        <span class="tipo-badge">${tipoLabel}</span>
+        <span class="precio-badge">${precio}</span>
+      </div>
+      <div class="info">
+        <h3>${p.titulo || tipoLabel + ' en ' + (p.ciudad || p.provincia)}</h3>
+        <div class="ubicacion">📍 ${p.ciudad || ''}${p.ciudad && p.provincia ? ', ' : ''}${p.provincia || ''}</div>
+        <div class="carac">${p.m2 ? '📐 ' + p.m2 + ' m²' : ''}${p.habitaciones ? ' · 🛏️ ' + p.habitaciones + ' hab' : ''}</div>
+      </div>
+    </a>
+  `;
+}
+
+async function cargarProvincias() {
+  const grid = document.getElementById('prov-grid');
+  grid.innerHTML = PROVINCIAS.map(p => `<a href="?provincia=${encodeURIComponent(p)}" onclick="buscarPorProvincia('${p}');return false">${p}</a>`).join('');
+}
+
+function buscarPorProvincia(prov) {
+  document.getElementById('input-ciudad').value = '';
+  document.getElementById('select-operacion').value = 'venta';
+  cargarPisos(prov, 'venta');
+  document.getElementById('pisos').scrollIntoView({ behavior: 'smooth' });
+}
+
+function buscarHero(e) {
   e.preventDefault();
-  alert('🔍 Buscador próximamente. Vuelve pronto.');
+  const ciudad = document.getElementById('input-ciudad').value.trim();
+  const operacion = document.getElementById('select-operacion').value;
+  cargarPisos(ciudad ? undefined : undefined, operacion);
+  document.getElementById('pisos').scrollIntoView({ behavior: 'smooth' });
+}
+
+async function cargarStats() {
+  try {
+    const res = await fetch(API + '?action=listar&page=1&limit=1');
+    const data = await res.json();
+    document.getElementById('total-pisos').textContent = data.total || 0;
+    // Contar provincias con pisos
+    if (data.pisos && data.pisos.length > 0) {
+      const unicas = new Set(data.pisos.map(p => p.provincia));
+      document.getElementById('total-provincias').textContent = unicas.size || PROVINCIAS.length;
+    } else {
+      document.getElementById('total-provincias').textContent = PROVINCIAS.length;
+    }
+  } catch(e) {}
 }
 </script>
-
 <script data-goatcounter="https://certificadoya.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
