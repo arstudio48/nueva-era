@@ -14,9 +14,9 @@
     body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--black); }
     .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
 
-    header { background: var(--white); border-bottom: 1px solid var(--light-gray); padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
-    .back { color: var(--gray); text-decoration: none; font-size: .85rem; }
-    .back:hover { color: var(--black); }
+    header{position:sticky;top:0;z-index:100;background:rgba(27,27,31,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);height:56px;display:flex;align-items:center;padding:0 1.5rem;gap:1rem}
+    .back{color:rgba(255,255,255,.6);font-size:.85rem;text-decoration:none;transition:color .2s}
+    .back:hover{color:#fff}
 
     .form-wrap { padding: 3rem 0; }
     .form-wrap h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: .3rem; }
@@ -65,7 +65,7 @@
 </head>
 <body>
 <header>
-  <a href="/" class="back">← Volver al portal</a>
+  <a href="/" class="back">← Nueva Era</a>
 </header>
 <div class="container">
   <div class="form-wrap" id="form-wrap">

@@ -4,108 +4,166 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nueva Era — Portal Inmobiliario</title>
-  <meta name="description" content="Portal inmobiliario. Compra, venta y alquiler de viviendas en toda España.">
+  <meta name="description" content="Miles de viviendas en toda España. Compra, venta y alquiler. También obra nueva de las mejores promotoras.">
+  <meta name="keywords" content="portal inmobiliario, comprar piso, alquilar, obra nueva, viviendas">
+  <meta property="og:title" content="Nueva Era — Portal Inmobiliario">
+  <meta property="og:description" content="Tu próximo hogar empieza aquí. Miles de viviendas en toda España.">
+  <meta property="og:image" content="https://arstudio48.github.io/nueva-era/imgs/hero.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',-apple-system,sans-serif;background:#f7f7f7;color:#111;-webkit-font-smoothing:antialiased}
-    a{text-decoration:none;color:inherit}img{display:block}
-    .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#f5f5f5;color:#111;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 
-    .header{background:#fff;border-bottom:1px solid #e5e5e5;position:sticky;top:0;z-index:100}
-    .header__inner{height:64px;display:flex;align-items:center;gap:32px}
-    .logo{font-weight:800;font-size:17px;color:#1a1a2e;display:flex;align-items:center;gap:8px;flex-shrink:0}
-    .logo span{color:#d4af37}
-    .nav{display:flex;gap:20px}
-    .nav a{font-size:13px;color:#555;font-weight:500;padding:4px 0;border-bottom:2px solid transparent;transition:all .15s;cursor:pointer}
-    .nav a:hover{color:#111;border-bottom-color:#d4af37}
-    .header__search{display:flex;flex:1;max-width:360px;background:#f5f5f5;border-radius:8px;overflow:hidden}
-    .header__search input{flex:1;border:none;background:transparent;padding:8px 14px;font-size:13px;outline:none;font-family:inherit}
-    .header__search button{border:none;background:#d4af37;padding:8px 16px;cursor:pointer;font-size:14px}
-    .header__actions{display:flex;gap:12px;align-items:center;flex-shrink:0}
-    .btn--primary{background:#d4af37;color:#1a1a2e;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:600;border:none;cursor:pointer;font-family:inherit}
-    .btn--primary:hover{background:#c4a030}
-    .btn--outline{border:1px solid #ddd;padding:7px 16px;border-radius:6px;font-size:13px;font-weight:500;color:#555}
-    .btn--outline:hover{border-color:#d4af37;color:#d4af37}
+    :root{--gold:#d4af37;--gold-light:#e8c84a;--gold-dark:#b8962e;--black:#1b1b1f;--dark:#252530;--bg:#f5f5f5;--card:#fff;--text:#111;--muted:#777}
 
-    .hero{background:linear-gradient(135deg,#1a1a2e,#252540);padding:28px 0}
-    .hero h1{font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
-    .hero h1 span{color:#d4af37}
-    .hero p{color:#999;font-size:13px;margin-bottom:16px}
-    .searchbox{display:flex;background:#fff;border-radius:8px;overflow:hidden;max-width:620px}
-    .searchbox input,.searchbox select{border:none;padding:10px 14px;font-size:13px;font-family:inherit;outline:none;background:transparent}
-    .searchbox input{flex:1;min-width:0}
-    .searchbox select{border-left:1px solid #eee;cursor:pointer;color:#555;background:#fff}
-    .searchbox button{background:#d4af37;border:none;padding:10px 28px;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit;color:#1a1a2e;white-space:nowrap}
+    /* HEADER */
+    .header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(27,27,31,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);transition:background .3s}
+    .header:hover{background:rgba(27,27,31,.95)}
+    .header__inner{display:flex;align-items:center;height:62px;gap:28px}
+    .logo{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.5px}
+    .logo span{color:var(--gold)}
+    .nav{display:flex;gap:4px}
+    .nav a{padding:8px 16px;border-radius:6px;font-size:13px;font-weight:500;color:rgba(255,255,255,.7);transition:all .2s;cursor:pointer}
+    .nav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+    .nav a.active{color:#fff;background:rgba(212,175,55,.15)}
+    .spacer{flex:1}
+    .header__search{display:flex;align-items:center;background:rgba(255,255,255,.1);border-radius:8px;padding:0 14px;gap:6px;border:1px solid rgba(255,255,255,.08)}
+    .header__search input{background:none;border:none;outline:none;padding:9px 0;font-size:13px;color:#fff;width:170px;font-family:inherit}
+    .header__search input::placeholder{color:rgba(255,255,255,.4)}
+    .header__search button{background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:16px;padding:4px}
+    .header__search button:hover{color:var(--gold)}
+    .btn--outline{border:1px solid var(--gold);color:var(--gold);padding:7px 18px;border-radius:6px;font-size:13px;font-weight:500;transition:all .2s;cursor:pointer}
+    .btn--outline:hover{background:var(--gold);color:var(--black)}
+    .btn--solid{background:var(--gold);color:var(--black);padding:7px 18px;border-radius:6px;font-size:13px;font-weight:600;transition:all .2s;cursor:pointer;border:none;font-family:inherit}
+    .btn--solid:hover{background:var(--gold-dark)}
 
-    .toolbar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid #eee;margin-bottom:16px;gap:12px;flex-wrap:wrap}
-    .toolbar__count{font-size:13px;color:#888}
+    /* HERO */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .hero__bg{position:absolute;inset:0;background:url('imgs/hero.jpg') center/cover no-repeat}
+    .hero__overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,27,31,.88) 0%,rgba(27,27,31,.65) 50%,rgba(27,27,31,.45) 100%)}
+    .hero__content{position:relative;z-index:2;text-align:center;max-width:700px;padding:0 24px}
+    .hero__badge{display:inline-block;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.3);color:var(--gold);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;margin-bottom:20px;letter-spacing:.3px}
+    .hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:12px;letter-spacing:-1px}
+    .hero h1 span{color:var(--gold)}
+    .hero p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.65);margin-bottom:32px;line-height:1.6}
+    .searchbox{display:flex;max-width:560px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+    .searchbox input{flex:1;border:none;outline:none;padding:15px 18px;font-size:14px;font-family:inherit;background:transparent;color:#111}
+    .searchbox select{border:none;outline:none;padding:0 14px;font-size:13px;font-family:inherit;background:#f9f9f9;color:#555;cursor:pointer;border-left:1px solid #eee;min-width:110px}
+    .searchbox button{background:var(--gold);border:none;padding:0 28px;font-size:14px;font-weight:600;color:var(--black);cursor:pointer;transition:background .2s;font-family:inherit}
+    .searchbox button:hover{background:var(--gold-light)}
+    .hero__stats{display:flex;gap:40px;justify-content:center;margin-top:40px}
+    .hero__stat{text-align:center}
+    .hero__stat .num{font-size:28px;font-weight:800;color:#fff}
+    .hero__stat .lbl{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px}
+    .hero__scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.4);font-size:20px;animation:bounce 2s infinite;cursor:pointer}
+    @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+    /* RESULTS */
+    .results{padding:32px 0 24px;margin-top:-40px;position:relative;z-index:3}
+    .tabs{display:flex;gap:0;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:16px}
+    .tab{flex:1;padding:14px;border:none;background:#fff;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;color:#666;font-family:inherit;position:relative}
+    .tab:hover{color:#111;background:#fafafa}
+    .tab.active{color:var(--black);font-weight:600;background:linear-gradient(to top, rgba(212,175,55,.08) 0%, transparent 80%)}
+    .tab.active::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:var(--gold);border-radius:2px}
+    .toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding:0 4px}
+    .toolbar__count{font-size:14px;color:#666}
     .toolbar__count strong{color:#111}
-    .sort select{border:1px solid #e5e5e5;border-radius:6px;padding:6px 10px;font-size:12px;font-family:inherit;outline:none;color:#555;background:#fff;cursor:pointer}
-    .sort select:focus{border-color:#d4af37}
+    .sort select{padding:7px 12px;border:1px solid #e0e0e0;border-radius:6px;font-size:12px;font-family:inherit;color:#555;background:#fff;cursor:pointer;outline:none}
+    .sort select:focus{border-color:var(--gold)}
 
-    .tabs{display:flex;gap:0;margin-bottom:0;border-bottom:1px solid #eee}
-    .tab{padding:12px 20px;background:transparent;border:none;border-bottom:2px solid transparent;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;color:#888;transition:all .15s}
-    .tab:hover{color:#111}
-    .tab.active{color:#1a1a2e;font-weight:600;border-bottom-color:#d4af37}
-
-    .results{padding:0 0 32px}
+    /* GRID */
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-
-    .card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #e8e8e8;transition:box-shadow .2s;display:block}
-    .card:hover{box-shadow:0 4px 20px rgba(0,0,0,.06)}
-    .card__top{position:relative;overflow:hidden;background:#eee;height:180px}
-    .card__img{width:100%;height:100%;object-fit:cover;display:block}
-    .card__price{position:absolute;bottom:8px;left:10px;background:rgba(0,0,0,.6);color:#fff;padding:3px 10px;border-radius:4px;font-size:15px;font-weight:700;backdrop-filter:blur(2px)}
-    .card__tag{position:absolute;top:10px;left:10px;background:#d4af37;color:#1a1a2e;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600}
-    .card__body{padding:10px 12px 12px}
-    .card__price-inline{font-size:16px;font-weight:700;color:#111;margin-bottom:2px}
-    .card__title{font-size:13px;font-weight:600;color:#111;margin-bottom:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .card__subtitle{font-size:12px;color:#888;margin-bottom:4px}
-    .card__chars{display:flex;gap:10px;font-size:12px;color:#666}
-    .card__desc{font-size:12px;color:#888;margin-top:6px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-    .card__action{display:block;margin-top:8px;padding-top:8px;border-top:1px solid #f0f0f0;font-size:12px;color:#d4af37;font-weight:500}
+    .card{background:#fff;border-radius:10px;overflow:hidden;transition:all .25s;display:flex;flex-direction:column;box-shadow:0 1px 4px rgba(0,0,0,.04);cursor:pointer}
+    .card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.1)}
+    .card__top{position:relative;overflow:hidden;aspect-ratio:16/11;background:#eee}
+    .card__img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .card:hover .card__img{transform:scale(1.05)}
+    .card__labels{position:absolute;top:10px;left:10px;display:flex;gap:5px;flex-wrap:wrap}
+    .card__tag{padding:3px 9px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.3px;text-transform:uppercase}
+    .card__tag--venta{background:var(--gold);color:var(--black)}
+    .card__tag--alquiler{background:#1a73e8;color:#fff}
+    .card__tag--obranueva{background:#2e7d32;color:#fff}
+    .card__tag--destacado{background:#e53935;color:#fff}
+    .card__price{position:absolute;bottom:8px;left:10px;background:rgba(0,0,0,.65);color:#fff;padding:4px 11px;border-radius:5px;font-size:14px;font-weight:700;backdrop-filter:blur(4px)}
+    .card__price small{font-weight:400;font-size:11px;opacity:.8}
+    .card__body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column}
+    .card__price-inline{font-size:17px;font-weight:700;color:var(--black);margin-bottom:2px}
+    .card__title{font-size:13px;font-weight:600;color:var(--black);margin-bottom:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .card__subtitle{font-size:12px;color:#999;margin-bottom:5px}
+    .card__chars{display:flex;gap:12px;font-size:12px;color:#888}
+    .card__desc{font-size:12px;color:#999;margin-top:5px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+    .card__action{display:block;margin-top:8px;padding-top:8px;border-top:1px solid #f0f0f0;font-size:12px;color:var(--gold);font-weight:500}
     .card__action:hover{text-decoration:underline}
 
-    .empty{text-align:center;padding:60px 0;color:#888;grid-column:1/-1}
-    .spinner{width:28px;height:28px;border:3px solid #e5e5e5;border-top-color:#d4af37;border-radius:50%;animation:spin .6s infinite;margin:32px auto;grid-column:1/-1}
+    .empty{text-align:center;padding:60px 20px;color:#888;grid-column:1/-1;font-size:14px;line-height:1.6}
+    .empty a{color:var(--gold);font-weight:600}
+    .spinner{width:30px;height:30px;border:3px solid #e5e5e5;border-top-color:var(--gold);border-radius:50%;animation:spin .6s infinite;margin:40px auto;grid-column:1/-1}
     @keyframes spin{to{transform:rotate(360deg)}}
 
+    /* DESTACADOS SECTION */
+    .destacados{background:linear-gradient(135deg,var(--black),var(--dark));padding:40px 0;margin:0}
+    .destacados .section-title{color:#fff}
+    .destacados .section-sub{color:rgba(255,255,255,.5)}
+    .destacados .grid{grid-template-columns:repeat(3,1fr)}
+    .destacados .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+    .destacados .card__body{background:transparent}
+    .destacados .card__title{color:#fff}
+    .destacados .card__subtitle{color:rgba(255,255,255,.5)}
+    .destacados .card__chars{color:rgba(255,255,255,.5)}
+    .destacados .card__price-inline{color:var(--gold)}
+    .destacados .card__desc{color:rgba(255,255,255,.4)}
+    .destacados .card__action{border-top-color:rgba(255,255,255,.1);color:var(--gold)}
+    .destacados .card:hover{background:rgba(255,255,255,.1)}
+
+    /* PROMOS */
     .promos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
-    .promo-card{background:linear-gradient(135deg,#1a1a2e,#252540);border-radius:8px;padding:24px;color:#fff}
-    .promo-card .badge{display:inline-block;background:#d4af37;color:#1a1a2e;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700;margin-bottom:10px}
-    .promo-card h3{font-size:14px;font-weight:600;margin-bottom:6px}
-    .promo-card p{color:#999;font-size:12px;line-height:1.5;margin-bottom:12px}
-    .promo-card .btn{display:inline-block;border:1px solid #d4af37;color:#d4af37;padding:6px 14px;border-radius:4px;font-size:12px;font-weight:500;cursor:pointer}
-    .promo-card .btn:hover{background:#d4af37;color:#1a1a2e}
+    .promo-card{background:linear-gradient(135deg,var(--black),var(--dark));border-radius:10px;padding:28px;color:#fff;transition:transform .25s}
+    .promo-card:hover{transform:translateY(-2px)}
+    .promo-card .badge{display:inline-block;background:var(--gold);color:var(--black);padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.3px;margin-bottom:12px;text-transform:uppercase}
+    .promo-card h3{font-size:15px;font-weight:600;margin-bottom:8px}
+    .promo-card p{color:rgba(255,255,255,.5);font-size:13px;line-height:1.6;margin-bottom:16px}
+    .promo-card .btn{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:8px 18px;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s}
+    .promo-card .btn:hover{background:var(--gold);color:var(--black)}
 
+    /* PROVINCIAS */
     .provs{display:flex;flex-wrap:wrap;gap:6px}
-    .provs a{padding:5px 14px;background:#fff;border:1px solid #e5e5e5;border-radius:4px;font-size:12px;color:#555;cursor:pointer}
-    .provs a:hover{border-color:#d4af37;color:#d4af37}
+    .provs a{padding:6px 16px;background:#fff;border:1px solid #e5e5e5;border-radius:6px;font-size:13px;color:#555;cursor:pointer;transition:all .2s}
+    .provs a:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.04)}
 
-    section{padding:28px 0}
-    .section-title{font-size:17px;font-weight:700;margin-bottom:2px}
-    .section-sub{color:#888;font-size:13px;margin-bottom:14px}
+    section{padding:36px 0}
+    .section-title{font-size:20px;font-weight:800;margin-bottom:3px;letter-spacing:-.3px}
+    .section-sub{color:var(--muted);font-size:14px;margin-bottom:16px}
 
-    .footer{background:#1a1a2e;color:#888;padding:32px 0 20px;font-size:12px;margin-top:32px}
+    /* FOOTER */
+    .footer{background:var(--black);color:rgba(255,255,255,.5);padding:40px 0 24px;font-size:13px;margin-top:0}
     .footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
-    .footer h4{color:#fff;font-size:13px;margin-bottom:10px}
-    .footer a{color:#888;display:block;margin-bottom:4px;cursor:pointer}
-    .footer a:hover{color:#d4af37}
-    .footer__bottom{border-top:1px solid #333;padding-top:16px;margin-top:24px;text-align:center}
+    .footer h4{color:#fff;font-size:14px;margin-bottom:12px;font-weight:600}
+    .footer a{color:rgba(255,255,255,.5);display:block;margin-bottom:5px;cursor:pointer;transition:color .2s}
+    .footer a:hover{color:var(--gold)}
+    .footer__bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;margin-top:28px;text-align:center;font-size:12px}
 
-    @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+    /* RESPONSIVE */
+    @media(max-width:1024px){.grid,.destacados .grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:768px){
-      .grid{grid-template-columns:1fr}
-      .searchbox{flex-direction:column}
-      .searchbox select{border-left:none;border-top:1px solid #eee}
-      .header__inner{height:auto;padding:10px 0;flex-wrap:wrap;gap:12px}
-      .promos{grid-template-columns:1fr}
-      .footer__grid{grid-template-columns:1fr}
+      .grid,.destacados .grid,.promos{grid-template-columns:1fr}
+      .searchbox{flex-direction:column;border-radius:10px}
+      .searchbox select{border-left:none;border-top:1px solid #eee;min-width:auto;padding:12px 14px}
+      .searchbox button{padding:14px}
+      .header__inner{height:56px;padding:0 16px;gap:12px}
       .nav{display:none}
       .header__search{display:none}
+      .hero{min-height:85vh}
+      .hero__stats{flex-wrap:wrap;gap:20px}
+      .hero__stats .num{font-size:20px}
+      .footer__grid{grid-template-columns:1fr}
+      .tabs{flex-direction:column}
+      .tab.active::after{left:0;right:auto;width:3px;height:auto;top:0;bottom:0}
+      section{padding:28px 0}
     }
   </style>
 </head>
@@ -115,38 +173,55 @@
   <div class="wrap header__inner">
     <a href="/" class="logo">Nueva <span>Era</span></a>
     <nav class="nav">
-      <a onclick="switchOp('venta')">Comprar</a>
+      <a class="active" onclick="switchOp('venta')">Comprar</a>
       <a onclick="switchOp('alquiler')">Alquilar</a>
       <a onclick="switchOp('obranueva')">Obra nueva</a>
     </nav>
+    <div class="spacer"></div>
     <div class="header__search">
-      <input type="text" id="hq" placeholder="Buscar ciudad..." onkeydown="if(event.key==='Enter')hSearch()">
+      <input type="text" id="hq" placeholder="Ciudad..." onkeydown="if(event.key==='Enter')hSearch()">
       <button onclick="hSearch()">🔍</button>
     </div>
-    <div class="header__actions">
-      <a href="/publicar.html" class="btn--outline">Publicar</a>
-    </div>
+    <a href="/publicar.html" class="btn--outline">Publicar</a>
   </div>
 </div>
 
 <div class="hero">
-  <div class="wrap">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <div class="hero__badge">Portal inmobiliario de confianza</div>
     <h1>Tu <span>próximo hogar</span> empieza aquí</h1>
-    <p>Miles de viviendas en toda España. Compra, venta y alquiler.</p>
+    <p>Compra, alquila o descubre obra nueva. Miles de viviendas de particulares, agencias y promotoras en toda España.</p>
     <form class="searchbox" onsubmit="return heroSearch(event)">
-      <input type="text" id="sq" placeholder="Ciudad, barrio...">
+      <input type="text" id="sq" placeholder="Ciudad, barrio o municipio...">
       <select id="sop"><option value="venta">Comprar</option><option value="alquiler">Alquilar</option></select>
       <select id="stp"><option value="">Todos</option><option>Piso</option><option>Casa</option><option>Ático</option></select>
       <button type="submit">Buscar</button>
     </form>
+    <div class="hero__stats">
+      <div class="hero__stat"><div class="num" id="stat-total">—</div><div class="lbl">Anuncios</div></div>
+      <div class="hero__stat"><div class="num" id="stat-prov">—</div><div class="lbl">Provincias</div></div>
+      <div class="hero__stat"><div class="num" id="stat-promo">—</div><div class="lbl">Promotoras</div></div>
+    </div>
   </div>
+  <div class="hero__scroll" onclick="document.getElementById('results').scrollIntoView({behavior:'smooth'})">↓</div>
 </div>
+
+<!-- DESTACADOS (patrocinados) -->
+<section class="destacados" id="destacados">
+  <div class="wrap">
+    <h2 class="section-title">⭐ Destacados</h2>
+    <p class="section-sub">Anuncios patrocinados por promotoras y agencias</p>
+    <div class="grid" id="grid-desta"></div>
+  </div>
+</section>
 
 <main class="wrap results" id="results">
   <div class="tabs">
-    <button class="tab active" onclick="switchOp('venta',this)">Compra</button>
-    <button class="tab" onclick="switchOp('alquiler',this)">Alquiler</button>
-    <button class="tab" onclick="switchOp('obranueva',this)">Obra nueva</button>
+    <button class="tab active" onclick="switchOp('venta',this)">Compra <span id="t1"></span></button>
+    <button class="tab" onclick="switchOp('alquiler',this)">Alquiler <span id="t2"></span></button>
+    <button class="tab" onclick="switchOp('obranueva',this)">Obra nueva <span id="t3"></span></button>
   </div>
   <div class="toolbar">
     <span class="toolbar__count" id="count">Cargando...</span>
@@ -167,9 +242,9 @@
     <h2 class="section-title">Para profesionales</h2>
     <p class="section-sub">Planes para constructoras, promotoras y agencias inmobiliarias</p>
     <div class="promos">
-      <div class="promo-card"><div class="badge">Obra nueva</div><h3>Publica tus promociones</h3><p>Llega a miles de compradores. Publica tus viviendas con fotos y precios.</p><a href="/publicar.html" class="btn">Publicar ahora →</a></div>
-      <div class="promo-card"><div class="badge">Publicidad</div><h3>Anúnciate en Nueva Era</h3><p>Banners, destacados, patrocinios por provincia. Segmenta tu audiencia.</p><a href="mailto:info@nuevaera.es" class="btn">Solicitar información →</a></div>
-      <div class="promo-card"><div class="badge">Agencias</div><h3>¿Eres agencia inmobiliaria?</h3><p>Planes especiales. Publica carteras completas con condiciones preferentes.</p><a href="mailto:info@nuevaera.es" class="btn">Contactar →</a></div>
+      <div class="promo-card"><div class="badge">Obra nueva</div><h3>Publica tus promociones</h3><p>Llega a miles de compradores. Publica tus viviendas con fotos profesionales y precios.</p><a href="/publicar.html" class="btn">Publicar ahora →</a></div>
+      <div class="promo-card"><div class="badge">Publicidad</div><h3>Anúnciate en Nueva Era</h3><p>Banners, anuncios destacados y patrocinios por provincia. Segmenta por perfil de comprador.</p><a href="mailto:info@nuevaera.es" class="btn">Solicitar información →</a></div>
+      <div class="promo-card"><div class="badge">Agencias</div><h3>¿Eres agencia inmobiliaria?</h3><p>Planes especiales con condiciones preferentes. Publica carteras completas con un solo clic.</p><a href="mailto:info@nuevaera.es" class="btn">Contactar →</a></div>
     </div>
   </div>
 </section>
@@ -185,71 +260,139 @@
 <div class="footer">
   <div class="wrap">
     <div class="footer__grid">
-      <div><div class="logo" style="color:#fff;margin-bottom:10px">Nueva <span>Era</span></div><p style="font-size:12px;line-height:1.6">Portal inmobiliario. Compra, venta y alquiler de viviendas en toda España.</p></div>
-      <div><h4>Inmuebles</h4><a onclick="switchOp('venta')">Pisos en venta</a><a onclick="switchOp('alquiler')">Pisos en alquiler</a><a onclick="switchOp('venta')">Casas</a><a onclick="switchOp('venta')">Áticos</a></div>
-      <div><h4>Profesionales</h4><a href="/publicar.html">Publicar anuncio</a><a href="#">Constructores</a><a href="#">Agencias</a><a href="#">Planes publicitarios</a></div>
-      <div><h4>Nueva Era</h4><a>Contacto</a><a>641 45 00 68</a><a>Aviso legal</a><a>Privacidad</a></div>
+      <div><div class="logo" style="color:#fff;margin-bottom:12px">Nueva <span>Era</span></div><p style="font-size:13px;line-height:1.7;color:rgba(255,255,255,.45)">Portal inmobiliario líder. Compra, venta, alquiler y obra nueva en toda España. Más de 14 anuncios y creciendo.</p></div>
+      <div><h4>Inmuebles</h4><a onclick="switchOp('venta')">Pisos en venta</a><a onclick="switchOp('alquiler')">Pisos en alquiler</a><a onclick="switchOp('venta')">Casas</a><a onclick="switchOp('obranueva')">Obra nueva</a></div>
+      <div><h4>Profesionales</h4><a href="/publicar.html">Publicar anuncio</a><a href="/publicar.html">Constructores</a><a>Planes agencias</a></div>
+      <div><h4>Nueva Era</h4><a>Contacto</a><a>641 00 00 00</a><a>Aviso legal</a><a>Privacidad</a></div>
     </div>
-    <div class="footer__bottom">Nueva Era &copy; 2026</div>
+    <div class="footer__bottom">Nueva Era &copy; 2026 — Portal Inmobiliario</div>
   </div>
 </div>
 
 <script>
 const API='https://wypgqpgjlookbhuaiyxa.supabase.co/functions/v1/nueva-era';
-const IMGS=['imgs/piso1.jpg','imgs/piso2.jpg','imgs/piso3.jpg','imgs/piso4.jpg','imgs/piso5.jpg','imgs/piso6.jpg','imgs/piso1.jpg','imgs/piso2.jpg'];
+const IMGS=['imgs/piso1.jpg','imgs/piso2.jpg','imgs/piso3.jpg','imgs/piso4.jpg','imgs/piso5.jpg','imgs/piso6.jpg'];
 const PROVS=['Madrid','Barcelona','Valencia','Sevilla','Alicante','Málaga','Murcia','Asturias','Baleares','Zaragoza','Granada','Cádiz','Tenerife','Vizcaya','A Coruña','Valladolid','Cantabria','Navarra','Girona','Castellón','Toledo','Jaén','Córdoba','León','Burgos','Almería','Badajoz','La Rioja','Huesca'];
 
 let currentOp='venta', currentProv='';
+let allData={venta:[],alquiler:[],obranueva:[]};
 
-document.addEventListener('DOMContentLoaded',()=>{
-  load();
-  document.getElementById('provs').innerHTML=PROVS.map(p=>`<a onclick="filterProv('${p}')">${p}</a>`).join('');
-});
-
-async function load(){
-  const g=document.getElementById('grid');g.innerHTML='<div class="spinner"></div>';
-  try{
-    const sort=document.getElementById('sortOrder').value;
-    let url=API+'?action=listar&page=1&operacion='+currentOp;
-    if(currentProv)url+='&provincia='+encodeURIComponent(currentProv);
-    const r=await fetch(url);
-    const d=await r.json();
-    const total=d.total||0;
-    
-    // Sort locally
-    let pisos=d.pisos||[];
-    if(sort==='low')pisos.sort((a,b)=>a.precio-b.precio);
-    else if(sort==='high')pisos.sort((a,b)=>b.precio-a.precio);
-    else if(sort==='recent')pisos.sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
-    
-    document.getElementById('count').innerHTML='<strong>'+total+'</strong> anuncio'+(total!==1?'s':'')+(currentProv?' en '+currentProv:'');
-    if(!pisos.length){
-      g.innerHTML='<div class="empty">'+(currentProv?'No hay anuncios en '+currentProv+' aún':'Aún no hay anuncios')+'. <a href="/publicar.html" style="color:#d4af37;font-weight:600">Publica el primero</a></div>';
-      return;
-    }
-    g.innerHTML=pisos.map((p,i)=>`
-      <a href="/piso.html?id=${p.id}" class="card">
-        <div class="card__top">
-          <img class="card__img" src="${IMGS[i%IMGS.length]}" alt="" loading="lazy">
-          <span class="card__tag">${p.operacion==='alquiler'?'Alquiler':'Venta'}</span>
-          <span class="card__price">${(p.precio||0).toLocaleString('es-ES')} €</span>
-        </div>
-        <div class="card__body">
-          <div class="card__price-inline">${(p.precio||0).toLocaleString('es-ES')} €</div>
-          <div class="card__title">${p.titulo||'Vivienda'}</div>
-          <div class="card__subtitle">📍 ${[p.ciudad,p.provincia].filter(Boolean).join(', ')}</div>
-          <div class="card__chars">
-            ${p.m2?'<span>📐 '+p.m2+' m²</span>':''}
-            ${p.habitaciones?'<span>🛏️ '+p.habitaciones+' hab</span>':''}
-            ${p.banos?'<span>🚿 '+p.banos+' baño'+(p.banos>1?'s':'')+'</span>':''}
-          </div>
-          ${p.descripcion?'<div class="card__desc">'+p.descripcion.slice(0,120)+'</div>':''}
-          <span class="card__action">Ver detalle →</span>
-        </div>
-      </a>
-    `).join('');
-  }catch(_){g.innerHTML='<div class="empty">Error al cargar</div>';}
+function pisoImg(id){
+  let h=0;
+  for(let c of id)h=(h*31+c.charCodeAt(0))>>>0;
+  return IMGS[h%IMGS.length];
 }
+
+function opTag(op){
+  if(op==='venta')return 'venta';
+  if(op==='alquiler')return 'alquiler';
+  return 'obranueva';
+}
+
+function opLabel(op){
+  if(op==='alquiler')return 'Alquiler';
+  if(op==='obranueva')return 'Obra nueva';
+  return 'Venta';
+}
+
+function renderCards(pisos,gridId){
+  const g=document.getElementById(gridId);
+  if(!pisos.length){
+    g.innerHTML='<div class="empty">No hay anuncios disponibles.</div>';
+    return;
+  }
+  g.innerHTML=pisos.map(p=>`
+    <a href="/piso.html?id=${p.id}" class="card">
+      <div class="card__top">
+        <img class="card__img" src="${pisoImg(p.id)}" alt="" loading="lazy">
+        <div class="card__labels">
+          ${p.destacado?'<span class="card__tag card__tag--destacado">Destacado</span>':''}
+          <span class="card__tag card__tag--${opTag(p.operacion)}">${opLabel(p.operacion)}</span>
+        </div>
+        <span class="card__price">${(p.precio||0).toLocaleString('es-ES')} €${p.operacion==='alquiler'?'<small>/mes</small>':''}</span>
+      </div>
+      <div class="card__body">
+        <div class="card__price-inline">${(p.precio||0).toLocaleString('es-ES')} €${p.operacion==='alquiler'?'<small style="font-weight:400;font-size:12px;color:#888">/mes</small>':''}</div>
+        <div class="card__title">${p.titulo||'Vivienda'}</div>
+        <div class="card__subtitle">📍 ${[p.ciudad,p.provincia].filter(Boolean).join(', ')}</div>
+        <div class="card__chars">
+          ${p.m2?'<span>📐 '+p.m2+' m²</span>':''}
+          ${p.habitaciones?'<span>🛏️ '+p.habitaciones+' hab</span>':''}
+          ${p.banos?'<span>🚿 '+p.banos+' baño'+(p.banos>1?'s':'')+'</span>':''}
+        </div>
+        ${p.descripcion?'<div class="card__desc">'+p.descripcion.slice(0,120)+'</div>':''}
+        <span class="card__action">Ver detalle →</span>
+      </div>
+    </a>
+  `).join('');
+}
+
+async function loadAll(){
+  try{
+    const [rv,ra,ro]=await Promise.all([
+      fetch(API+'?action=listar&page=1&operacion=venta').then(r=>r.json()),
+      fetch(API+'?action=listar&page=1&operacion=alquiler').then(r=>r.json()),
+      fetch(API+'?action=listar&page=1&operacion=obranueva').then(r=>r.json()),
+    ]);
+    allData.venta=rv.pisos||[];
+    allData.alquiler=ra.pisos||[];
+    allData.obranueva=ro.pisos||[];
+
+    const total=(rv.total||0)+(ra.total||0)+(ro.total||0);
+    document.getElementById('stat-total').textContent=total;
+    document.getElementById('stat-prov').textContent=PROVS.length;
+
+    const promos=new Set();
+    [...allData.venta,...allData.alquiler,...allData.obranueva].forEach(p=>{
+      if(p.nombre_contacto)promos.add(p.nombre_contacto);
+    });
+    document.getElementById('stat-promo').textContent=promos.size;
+
+    const t1=document.getElementById('t1');
+    const t2=document.getElementById('t2');
+    const t3=document.getElementById('t3');
+    if(t1)t1.textContent='('+(rv.total||0)+')';
+    if(t2)t2.textContent='('+(ra.total||0)+')';
+    if(t3)t3.textContent='('+(ro.total||0)+')';
+
+    // Load destacados (any destacado=true, or obra nueva)
+    let desta=[...allData.obranueva];
+    const destaVenta=allData.venta.filter(p=>p.destacado);
+    desta=[...desta,...destaVenta];
+    if(desta.length>3)desta=desta.slice(0,3);
+    if(desta.length<3){
+      const extra=[...allData.venta,...allData.alquiler].filter(p=>!desta.find(d=>d.id===p.id));
+      while(desta.length<3&&extra.length)desta.push(extra.shift());
+    }
+    renderCards(desta,'grid-desta');
+
+    // Load current tab
+    load();
+  }catch(e){
+    document.getElementById('grid').innerHTML='<div class="empty">Error al cargar. Inténtalo de nuevo.</div>';
+  }
+}
+
+function load(){
+  const g=document.getElementById('grid');
+  g.innerHTML='<div class="spinner"></div>';
+  const sort=document.getElementById('sortOrder').value;
+  let pisos=allData[currentOp]||[];
+  if(currentProv)pisos=pisos.filter(p=>(p.provincia||'').toLowerCase()===currentProv.toLowerCase());
+  const total=pisos.length;
+
+  if(sort==='low')pisos.sort((a,b)=>a.precio-b.precio);
+  else if(sort==='high')pisos.sort((a,b)=>b.precio-a.precio);
+  else if(sort==='recent')pisos.sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
+
+  document.getElementById('count').innerHTML='<strong>'+total+'</strong> anuncio'+(total!==1?'s':'')+(currentProv?' en '+currentProv:'');
+  if(!pisos.length){
+    g.innerHTML='<div class="empty">'+(currentProv?'No hay anuncios en '+currentProv+' aún':'Aún no hay anuncios')+'. <a href="/publicar.html">Publica el primero</a></div>';
+    return;
+  }
+  renderCards(pisos,'grid');
+}
+
 function reload(){load()}
 
 function switchOp(op,btn){
@@ -257,6 +400,10 @@ function switchOp(op,btn){
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   if(btn)btn.classList.add('active');
   else document.querySelector('.tab').classList.add('active');
+  // Update nav
+  document.querySelectorAll('.nav a').forEach(a=>a.classList.remove('active'));
+  const idx={venta:0,alquiler:1,obranueva:2}[op];
+  if(idx!==undefined)document.querySelectorAll('.nav a')[idx].classList.add('active');
   load();
   document.getElementById('sq').value='';
   document.getElementById('hq').value='';
@@ -273,7 +420,8 @@ function heroSearch(e){
   const q=document.getElementById('sq').value.trim();
   if(q)document.getElementById('hq').value=q;
   currentProv='';
-  document.getElementById('sop')&&(currentOp=document.getElementById('sop').value);
+  const sel=document.getElementById('sop');
+  if(sel)currentOp=sel.value;
   load();
   document.getElementById('results').scrollIntoView({behavior:'smooth'});
   return false;
@@ -288,6 +436,11 @@ function hSearch(){
     document.getElementById('results').scrollIntoView({behavior:'smooth'});
   }
 }
+
+document.addEventListener('DOMContentLoaded',()=>{
+  loadAll();
+  document.getElementById('provs').innerHTML=PROVS.map(p=>`<a onclick="filterProv('${p}')">${p}</a>`).join('');
+});
 </script>
 </body>
 </html>
