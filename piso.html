@@ -72,6 +72,8 @@
 <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 <script>
 const API='https://wypgqpgjlookbhuaiyxa.supabase.co/functions/v1/nueva-era';
+const IMGS=['/imgs/piso1.jpg','/imgs/piso2.jpg','/imgs/piso3.jpg','/imgs/piso4.jpg','/imgs/piso5.jpg','/imgs/piso6.jpg'];
+function pisoImg(id){let h=0;for(let c of id)h=(h*31+c.charCodeAt(0))>>>0;return IMGS[h%IMGS.length];}
 const id=new URLSearchParams(window.location.search).get('id');
 if(!id)document.getElementById('detalle').innerHTML='<div class="load">Enlace inválido</div>';
 else load();
@@ -98,7 +100,7 @@ function render(p){
   document.getElementById('detalle').innerHTML=`
     <div>
       <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=85" alt="">
+        <img src="${pisoImg(p.id)}" alt="">
         <div class="op-badge">${opLbl}</div>
         <div class="count-badge">📷 1/4</div>
       </div>
